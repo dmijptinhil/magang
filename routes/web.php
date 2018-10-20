@@ -45,6 +45,5 @@ Route::delete('users/edit/{user_id}', 'UsersController@destroy')->name('userDest
 Route::get('search', 'PagesController@search')->name('search');
 
 //delete file
-Route::delete('file/delete/in/{letter_id}/{filename}', 'Inletters@deleteFile')->name('deleteFileIn');
-
-Route::delete('file/delete/out/{letter_id}/{filename}', 'Outletters@deleteFile')->name('deleteFileOut');
+Route::delete('file/delete/in/{letter_id}/{filename}', 'InlettersController@deleteFile')->name('deleteFileIn');
+Route::delete('file/delete/out/{letter_id}/{filename}', 'OutlettersController@deleteFile')->name('deleteFileOut');

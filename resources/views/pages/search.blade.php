@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-header card-header-danger">
             <h4 class="card-title ">Surat Masuk</h4>
-              <p class="card-category">Hasil pencarian surat masuk dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($ins) }} hasil {{ count($ins) != 1 ? "" : "" }}</p>
+              <p class="card-category">Hasil pencarian surat masuk dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($ins) }} hasil</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -52,7 +52,7 @@
               <i class="material-icons">info_outline</i>
             </div>
             <p class="card-category"> Surat Masuk</p>
-            <h3 class="card-title">Hasil pencarian surat masuk dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($ins) }} hasil {{ count($ins) != 1 ? "" : "" }}</h3>
+            <h3 class="card-title">Hasil pencarian surat masuk dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($ins) }} hasil</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -69,7 +69,7 @@
         <div class="card">
           <div class="card-header card-header-info">
             <h4 class="card-title ">Surat Keluar</h4>
-             <p class="card-category">Hasil pencarian surat keluar dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($outs) }} hasil {{ count($outs) != 1 ? "" : "" }}</p>
+             <p class="card-category">Hasil pencarian surat keluar dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($outs) }} hasil</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -113,7 +113,7 @@
               <i class="material-icons">info_outline</i>
             </div>
             <p class="card-category"> Surat Keluar</p>
-            <h3 class="card-title">Hasil pencarian surat keluar dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($outs) }} hasil {{ count($outs) != 1 ? "" : "" }}</h3>
+            <h3 class="card-title">Hasil pencarian surat keluar dari tanggal {{ date('d M Y', strtotime($dateRange['from'])) }} dan {{ date('d M Y', strtotime($dateRange['to'])) }} menampilkan {{ count($outs) }} hasil</h3>
           </div>
           <div class="card-footer">
             <div class="stats">

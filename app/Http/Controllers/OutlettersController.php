@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Outletter;
 use DB;
+use Illuminate\Support\Facades\File;
+
 class OutlettersController extends Controller
 {
     /**

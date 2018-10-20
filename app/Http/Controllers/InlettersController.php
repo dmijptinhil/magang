@@ -7,6 +7,7 @@ use App\Inletter;
 use App\User;
 use App\Disposisi;
 use DB;
+use Illuminate\Support\Facades\File;
 
 class InlettersController extends Controller
 {   
