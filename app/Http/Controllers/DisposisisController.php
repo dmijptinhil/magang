@@ -39,7 +39,7 @@ class DisposisisController extends Controller
     {
 
         $disposisi= new \App\Disposisi;
-        $disposisi->tujuan = serialize($request->tujuan);
+        $disposisi->tujuan = serialize($request->input('tujuan'));
         $disposisi->catatan=$request->input('catatan');
         $disposisi->batas_waktu=$request->input('batas_waktu');
         $disposisi->sifat_disposisi=$request->input('sifat_disposisi');
@@ -87,7 +87,7 @@ class DisposisisController extends Controller
     public function update(Request $request, $id)
     {
         $disposisi = Disposisi::find($id);
-        $disposisi->tujuan = serialize($request->tujuan);
+        $disposisi->tujuan = serialize($request->input('tujuan'));
         $disposisi->catatan = $request->input('catatan');
         $disposisi->batas_waktu = $request->input('batas_waktu');
         $disposisi->sifat_disposisi = $request->input('sifat_disposisi');
