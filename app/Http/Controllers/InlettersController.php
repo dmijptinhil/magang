@@ -159,6 +159,10 @@ class InlettersController extends Controller
         }
     }
     
+    // public function download() {
+
+    //     return response()->download('/files/to/file.pdf', 'example.pdf', [], 'inline');
+    // }
    public function deleteFile($letter_id, $filename) {
     File::delete(public_path('files/' . $filename));
 

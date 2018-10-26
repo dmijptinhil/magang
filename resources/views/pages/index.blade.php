@@ -1,10 +1,90 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <!-- menampilkan jumlah surat masuk hari ini -->
+
+<div class="row"> 
+  <div class="col-md-8">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <a href="#pablo">
+          <img class="img" src="../assets/img/BPS.png" />
+        </a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-category text-gray">Badan Pusat Statistik Provinsi Jambi</h6>
+        <h4 class="card-title"></h4>
+        <p class="card-description">
+            
+        </p>
+        <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Silahkan login untuk masuk ke sistem') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Alamat E-mail') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Kata Sandi') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                           <!--  <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-danger">
+                                    {{ __('Masuk') }}
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Lupa Kata Sandi?') }}
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+  <!-- menampilkan jumlah surat masuk hari ini -->
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
           <div class="card-header card-header-warning card-header-icon">
@@ -23,181 +103,6 @@
           </div>
         </div>
       </div>
-       <!-- menampilkan jumlah surat keluar hari ini -->
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-         <div class="card-header card-header-success card-header-icon">
-           <div class="card-icon">
-             <i class="material-icons">unarchive</i>
-           </div>
-            <p class="card-category">Surat Keluar Hari Ini</p>
-             <h3 class="card-title">{{ $no_today_keluar }} 
-                <small>SURAT</small></h3>
-         </div>
-          <div class="card-footer">
-            <div class="stats">
-               <i class="material-icons">update</i> Terakhir diperbarui
-            </div>
-          </div>
-        </div>
-      </div>
-       <!-- menampilkan total surat masuk -->
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-         <div class="card-header card-header-danger card-header-icon">
-           <div class="card-icon">
-             <i class="material-icons">info_outline</i>
-            </div>
-            <p class="card-category">Total Surat Masuk</p>
-              <h3 class="card-title">{{ $no_all_masuk }} <small>SURAT</small></h3>
-         </div>
-         <div class="card-footer">
-           <div class="stats">
-              <i class="material-icons">local_offer</i> Total Keseluruhan
-           </div>
-          </div>
-        </div>
-      </div>
-       <!-- menampilkan total surat masuk -->
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
-          <div class="card-header card-header-info card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">info_outline</i>
-            </div>
-            <p class="card-category">Total Surat Keluar</p>
-              <h3 class="card-title">{{ $no_all_keluar }} <small>SURAT</small></h3>
-           </div>
-           <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">local_offer</i> Total Keseluruhan
-              </div>
-           </div>
-          </div>
-        </div>
-      </div>
-       <!-- menampilkan tabel surat masuk & surat keluar-->
-      <div class="row">
-        @if(count($masuk) > 0)
-          <div class="col-lg-6 col-md-12">
-            <div class="card">
-              <div class="card-header card-header-danger">
-                <h4 class="card-title">Tabel Surat Masuk</h4>
-              
-              </div>
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="tab-pane active">
-                    <table class="table">
-                      <thead class=" text-danger">
-                        <th>Tanggal Masuk</th>
-                        <th>Nomor Surat</th>
-                        <th>Tujuan</th>  
-                        <th>File</th>
-                      </thead>
-                      <tbody>
-                        @foreach($masuk as $in)
-                          <tr>
-                            <td>{{$in->created_at->format('d F Y')}}</td>
-                            <td>{{$in->no_surat}}</td>
-                            <td>{{$in->tujuan}}</td>
-                            @if($in->filename == null || $in->filename == "")
-                              <td>Tidak ada file</td>
-                            @else
-                              <td><a href="{{ url('files/' . $in->filename) }}">Download file</a></td>
-                            @endif
-                          </tr>   
-                        @endforeach          
-                      </tbody>
-                    </table>
-                     <!-- pagination -->
-                    {{ $masuk->links()}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        @else
-          <!-- menampilkan tidak ada surat masuk -->
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-             <div class="card-header card-header-danger card-header-icon">
-               <div class="card-icon">
-                 <i class="material-icons">info_outline</i>
-                </div>
-                <p class="card-category"> Surat Masuk</p>
-                  <h3 class="card-title">
-                    tidak ada surat masuk
-                  </h3>
-             </div>
-             <div class="card-footer">
-               <div class="stats">
-                  <i class="material-icons">local_offer</i> Total Keseluruhan
-               </div>
-              </div>
-            </div>
-          </div>
-        @endif
+</div> 
 
-        @if(count($keluar) > 0)
-          <div class="col-lg-6 col-md-12">
-            <div class="card">
-              <div class="card-header card-header-info">
-                <h4 class="card-title">Tabel Surat Keluar</h4>
-              </div>
-              <div class="card-body table-responsive">
-                <table class="table table-hover">
-                  <thead class="text-info">
-                      <th>Tanggal Keluar</th>
-                      <th>Nomor Surat</th>
-                      <th>Asal</th>
-                      <th>Tujuan</th>  
-                      <th>File</th>
-                  </thead>
-                  <tbody>            
-                    @foreach($keluar as $out)
-                      <tr>
-                        <td>{{ $out->created_at->format('d F Y') }}</td>
-                        <td>{{$out->no_surat}}</td>
-                        <td>{{$out->asal}}</td>
-                        <td>{{$out->tujuan}}</td>
-                        <td>{{$out->filekeluar}}</td>
-                        @if($out->filekeluar == null || $out->filekeluar == "")
-                          <td>Tidak ada file</td>
-                        @else
-                          <td><a href="{{ url('filesout/' . $out->filekeluar) }}">Download file</a></td>
-                        @endif
-                       </tr>
-                    @endforeach  
-                  </tbody>
-                </table>
-                {{ $keluar->links()}}
-              </div>
-            </div>
-          </div>
-        @else
-          <!-- menampilkan tidak ada surat keluar -->
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-             <div class="card-header card-header-info card-header-icon">
-               <div class="card-icon">
-                 <i class="material-icons">info_outline</i>
-                </div>
-                <p class="card-category"> Surat Keluar</p>
-                  <h3 class="card-title">
-                   tidak ada surat keluar
-                  </h3>
-             </div>
-             <div class="card-footer">
-               <div class="stats">
-                  <i class="material-icons">local_offer</i> Total Keseluruhan
-               </div>
-              </div>
-            </div>
-          </div>
-        @endif
-      </div>
-    </div>
-  </div>
-</div>
 @endsection

@@ -24,7 +24,7 @@
               <tbody>
                 @foreach($inletters as $inletter)
                   <tr>
-                    <td>{{$inletter->created_at->format('l, d F Y')}}</td>
+                    <td>{{Common::indDate($inletter->created_at->format('l, d F Y'))}} </td>
                     <td>{{$inletter->no_surat}}</td>
                     <td>{{$inletter->asal}}</td>
                     <td>{{$inletter->perihal}}</td>
@@ -32,7 +32,7 @@
                     @if($inletter->filename == null || $inletter->filename == "")
                       <td>Tidak ada file</td>
                     @else
-                      <td><a class="text-danger" href="{{ url('files/' . $inletter->filename) }}">Download file</a></td>
+                      <td><a class="text-danger" href="{{ url('files/' . $inletter->filename) }}">Lihat file</a></td>
                     @endif
                     <td>   <a href="/inletters/{{ $inletter->id}}" class="btn btn-success pull-center">Detail Surat</a>  </td>
                   </tr>

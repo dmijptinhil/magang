@@ -24,7 +24,7 @@
             <tbody>
               @foreach($outletters as $outletter)
                 <tr>
-                  <td>{{$outletter->created_at->format('l, d F Y')}}</td>
+                  <td>{{Common::indDate($outletter->created_at->format('l, d F Y'))}}</td>
                   <td>{{$outletter->no_surat}}</td>
                   <td>{{$outletter->asal}}</td>
                   <td>{{$outletter->perihal}}</td>
@@ -32,7 +32,7 @@
                     @if($outletter->filename == null || $outletter->filename == "")
                      <td>Tidak ada file</td>
                     @else
-                      <td><a class="text-info" href="{{ url('files/' . $outletter->filename) }}">Download file</a></td>
+                      <td><a class="text-info" href="{{ url('files/' . $outletter->filename) }}">Lihat file</a></td>
                     @endif
                   <td>   <a href="/outletters/{{ $outletter->id}}" class="btn btn-success pull-center">Detail Surat</a>  </td>
               </tr>

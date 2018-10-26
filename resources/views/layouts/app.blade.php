@@ -5,8 +5,8 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!--template -->
-      <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('../assets/img/apple-icon.png') }}">
-      <link rel="icon" type="image/png" href="{{ asset('../assets/img/favicon.png') }}">
+      <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('../assets/img/BPS.png') }}">
+      <link rel="icon" type="image/png" href="{{ asset('../assets/img/BPS.png') }}">
       <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
       
       <!-- CSRF Token -->
@@ -31,25 +31,24 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
       <!-- CSS Files -->
       <link href="{{ asset('../assets/css/material-dashboard.css?v=2.1.0') }}" rel="stylesheet" />
-   
-
-        <style>
-         body {
-          font-family: "Open Sans", sans-serif;
-          height: 100vh;
-          background: url("{{ asset('images/HgflTDf.jpg') }}")50% fixed; 
-          background-size: cover;
-        }
-        </style>
+   <style>
+  body {
+    font-family: "Open Sans", sans-serif;
+    height: 100vh;
+    background: url("{{ asset('log/images/bg.jpg') }}")50% fixed; 
+    background-size: cover;
+  }
+</style>
   </head>
 
   <body class="">
     <div class="wrapper ">
       <div id="app">
+        
        <nav class="navbar navbar-expand-md navbar-light navbar-laravel  ">
           <div class="container-fluid">
             <div class="navbar-wrapper">
-              <a class="navbar-brand" href="{{ url('/dashboard') }}">  Aplikasi Pengarsipan Surat BPS
+              <a class="navbar-brand" href="{{ url('/dashboard') }}">  Aplikasi Pengarsipan Surat
                   </a></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,38 +61,27 @@
             <div class="collapse navbar-collapse justify-content-end">  
               <ul class="navbar-nav ml-auto" >
                 @guest
-                  <li class="nav-item">
+                 <!--  <li class="nav-item">
                    <a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
                   </li>
                   <li class="nav-item">
                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
-                  </li>
+                  </li> -->
                 @else
+                  
+                <form action="{{ route('search') }}" method="get" class="navbar-form">
+                  <!-- {{ csrf_field() }} -->
+                    <div class="input-group no-border">
+                      <input type="text" name="from" value="" class="form-control" placeholder="Cari Surat...">
+                      <!-- <input type="text" name="to" value="" class="form-control" placeholder="Search..."> -->
+                      <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                      </button>
+                    </div>
+                  </form>
                   <li class="nav-item active">
                     <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard </a>
-                  </li>
-                  <li  data-color="danger" class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Cari Surat <span class="caret"></span></a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <form action="{{ route('search') }}" method="get" class="navbar-form">
-                     <div class="input-group no-border">
-                        <div class="dropdown-item">
-                          Dari Tanggal 
-                          <br>
-                          <input type="date" name="from" placeholder="mm/dd/yyyy" required>
-                        </div>
-                        <div class="dropdown-item">
-                          Sampai Tanggal : 
-                          <input type="date" name="to" placeholder="mm/dd/yyyy" required>
-                        </div>
-                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                          <i class="material-icons">search</i>
-                          <div class="ripple-container"></div>
-                        </button>
-                      </div>
-                    </form>
-                    </div>
                   </li>
                    <!--jika usernya admin-->
                    @if(Auth::user()->role == 1)

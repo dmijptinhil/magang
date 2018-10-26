@@ -39,7 +39,9 @@ class DisposisisController extends Controller
     {
 
         $disposisi= new \App\Disposisi;
-        $disposisi->tujuan=$request->input('tujuan');
+        //dd($request->tujuan);
+        $disposisi->tujuan = implode(",", $request->tujuan);
+        //$disposisi->tujuan=$request->input('tujuan');
         $disposisi->catatan=$request->input('catatan');
         $disposisi->batas_waktu=$request->input('batas_waktu');
         $disposisi->sifat_disposisi=$request->input('sifat_disposisi');
@@ -86,8 +88,15 @@ class DisposisisController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $getTujuan = $tujuan;
+        $finds = Disposisi::whereName($tujuan)->first();
+        $tujuan = implode(",", $finds->tujuan);
+        
         $disposisi = Disposisi::find($id);
-        $disposisi->tujuan = $request->input('tujuan');
+        $disposisi->tujuan = $request->input('$tujuan');
+
+        
+        //$disposisi->tujuan = explode(",", $request->tujuan);
         $disposisi->catatan = $request->input('catatan');
         $disposisi->batas_waktu = $request->input('batas_waktu');
         $disposisi->sifat_disposisi = $request->input('sifat_disposisi');

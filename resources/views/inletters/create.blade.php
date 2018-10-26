@@ -66,23 +66,24 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-4">
               <div class="form-group">
                 {{Form::label('petugas', 'Nama Petugas',['class' => 'bmd-label-floating'])}}
                 {{Form::text('petugas', '',['class' => 'form-control', 'placeholder' => ''])}}
               </div>
-            </div>
+            </div> -->
             <!-- <div class="col-md-4">
               <div class="form-group">
                 {{Form::label('date', 'Tanggal Masuk Surat',['class' => 'bmd-label-floating'])}}
                 {{Form::date('date', '',['class' => 'form-control', 'placeholder' => '', 'required'])}}
               </div>
             </div> -->
-          </div>
-          {{Form::submit('Tambah Surat', ['class' => 'btn btn-danger pull-right' ])}}
+            {{Form::submit('Tambah Surat', ['class' => 'btn btn-danger pull-right' ])}}
           <div class="clearfix"></div>
           {!! Form::close() !!}
+          </div>
+          
         </div>
       </div>
     </div>

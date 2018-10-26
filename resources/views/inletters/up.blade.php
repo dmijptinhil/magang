@@ -30,7 +30,7 @@
    body {
     font-family: "Open Sans", sans-serif;
     height: 100vh;
-    background: url("{{ asset('images/HgflTDf.jpg') }}")50% fixed; 
+    background: url("{{ asset('log/images/bg.jpg') }}")50% fixed; 
     background-size: cover;
   }
   .back{

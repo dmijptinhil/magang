@@ -21,33 +21,21 @@
                    <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
                   </li>
                 @else
+                 <form action="{{ route('search') }}" method="get" class="navbar-form">
+                  <!-- {{ csrf_field() }} -->
+                    <div class="input-group no-border">
+                      <input type="text" name="from" value="" class="form-control" placeholder="Cari Surat...">
+                      <!-- <input type="text" name="to" value="" class="form-control" placeholder="Search..."> -->
+                      <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                      </button>
+                    </div>
+                  </form>
                   <li class="nav-item active">
                     <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard </a>
                   </li>
-                  <li  data-color="danger" class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Cari Surat <span class="caret"></span></a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <form action="{{ route('search') }}" method="get" class="navbar-form">
-                     <div class="input-group no-border">
-                        <div class="dropdown-item">
-                          Dari Tanggal 
-                          <br>
-                          <input type="date" name="from" placeholder="mm/dd/yyyy" required>
-                        </div>
-                        <div class="dropdown-item">
-                          Sampai Tanggal :
-                          <br>   
-                          <input type="date" name="to" placeholder="mm/dd/yyyy" required>
-                        </div>
-                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                          <i class="material-icons">search</i>
-                          <div class="ripple-container"></div>
-                        </button>
-                      </div>
-                    </form>
-                    </div>
-                  </li>
                    <!--jika usernya admin-->
                    @if(Auth::user()->role == 1)
                       <li class="nav-item dropdown">

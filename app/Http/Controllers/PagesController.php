@@ -81,4 +81,5 @@ class PagesController extends Controller
             ->with('ins', $in)
             ->with('outs', $out);
     }
+
 }

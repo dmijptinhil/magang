@@ -15,12 +15,26 @@
             <div class="col-md-5">
               <div class="form-group">
                 {{Form::label('tujuan', 'Tujuan Disposisi',['class' => 'bmd-label-floating'])}}
-               {{Form::text('tujuan', $disposisi->tujuan, ['class' => 'form-control', 'placeholder' => ''])}}
+              <!--  {{Form::text('tujuan', $disposisi->tujuan, ['class' => 'form-control', 'placeholder' => ''])}} -->
+              <div style="text-align: left; padding-left: 70px">
+              
+                <input type="checkbox" name="tujuan[]" value="IPDS"
+                {{in_array("IPDS",$tujuan)?"checked":""}}> IPDS<br>
+                <input type="checkbox" name="tujuan[]" value="Produksi" {{in_array("Produksi",$tujuan)?"checked":""}}> Produksi<br>
+                <input type="checkbox" name="tujuan[]" value="Distribusi" {{in_array("Distribusi",$tujuan)?"checked":""}}> Distribusi<br>
+                <input type="checkbox" name="tujuan[]" value="Nerwilis" {{in_array("Nerwilis",$tujuan)?"checked":""}}> Nerwilis<br>
+                <input type="checkbox" name="tujuan[]" value="Keuangan"{{in_array("Keuangan",$tujuan)?"checked":""}}> Keuangan<br>
+
+                <!-- {{Form::checkbox('check_tujuan[]', 'Produksi')}} Produksi <br>
+                {{Form::checkbox('check_tujuan[]', 'Distribusi')}} Distribusi <br>
+                {{Form::checkbox('check_tujuan[]', 'Nerwilis')}} Nerwilis <br>
+                {{Form::checkbox('check_tujuan[]', 'Keuangan')}} Keuangan <br> -->
+                </div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                {{Form::label('batas_waktu', 'Batas Waktu',['class' => 'bmd-label-floating'])}}
+                {{Form::label('batas_waktu', 'Batas Penyelesaian',['class' => 'bmd-label-floating'])}}
                  {{Form::date('batas_waktu', $disposisi->batas_waktu, ['class' => 'form-control', 'placeholder' => ''])}}
               </div>
             </div>
@@ -43,7 +57,7 @@
               </div>
             </div>
           </div>
-          {{Form::submit('Tambah Disposisi', ['class' => 'btn btn-primary pull-right' ])}}
+          {{Form::submit('Perbarui Disposisi', ['class' => 'btn btn-primary pull-right' ])}}
           <div class="clearfix"></div>
           {!! Form::close() !!}
         </div>

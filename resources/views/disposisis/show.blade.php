@@ -7,13 +7,13 @@
       <div class="card-header card-header-primary">
         <h2 class="card-title ">Disposisi Surat</h2>
         <h4 class="card-category">
-          Surat ini diinputkan
+          Surat ini diinputkan pada
           <br>
           Hari :
-          {{$data->created_at->format('l') }}
+         {{Common::indDate($data->created_at->format('l'))}}
           <br>
           Tanggal :
-          {{$data->created_at->format('d F Y') }}
+          {{Common::indDate($data->created_at->format('d F Y'))}}
         </h4>
       </div>
       <div class="card-body">
@@ -40,10 +40,13 @@
         </div>
         <div class="card-body">
           <h4 class="card-title">Nomor Surat Masuk : {{$no_surat}}</h4>
-          <h4 class="card-title">Tujuan Disposisi  : {{$data->tujuan}}</h4>
-          <h4 class="card-title">Tanggal Penyelesaian Surat : {{$data->batas_waktu}}</h4>
+          <h4 class="card-title">Tujuan Disposisi  : 
+          
+          {{$data->tujuan}}
+          </h4>
+          <h4 class="card-title">Tanggal Penyelesaian Surat : {{Common::indDate(date("d F Y", strtotime($data->batas_waktu)))}} </h4>
           <h4 class="card-title">Sifat Disposisi : <br>{{$data->sifat_disposisi}}</h4>  
-          <h4 class="card-title">Catatan Disposisi : {{$data->perihal}}</h4>
+          <h4 class="card-title">Catatan Disposisi : {{$data->catatan}}</h4>
         </div>
         <div class="card-footer">
           <div class="stats">

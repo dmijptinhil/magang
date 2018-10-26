@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'PagesController@index');
-
+// Route::get('/', 'DashboardController@index');
+Route::get('/', 'DashboardController@index')->name('dashboard');
 // RESOURCE ROUTES
 Route::resource('pages', 'PagesController');
 Route::resource('inletters', 'InlettersController');
@@ -27,6 +27,7 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('disposisis/{id_inletter}/create','DisposisisController@create')->name('add_disposisi');
+//Route::post('checkbox', 'DisposisisController@post')->name('post');
 
 Route::get('inletters/upload-file/{id_inletter}', 'InlettersController@upload')->name('uploadFileIn');
 Route::post('inletters/post-file', 'InlettersController@up');
@@ -42,8 +43,12 @@ Route::get('users/create', 'UsersController@create')->name('userCreate');
 Route::post('users/store', 'UsersController@store')->name('userStore');
 Route::delete('users/edit/{user_id}', 'UsersController@destroy')->name('userDestroy');
 
-Route::get('search', 'PagesController@search')->name('search');
+Route::get('/search', 'DashboardController@search')->name('search');
 
 //delete file
 Route::delete('file/delete/in/{letter_id}/{filename}', 'InlettersController@deleteFile')->name('deleteFileIn');
 Route::delete('file/delete/out/{letter_id}/{filename}', 'OutlettersController@deleteFile')->name('deleteFileOut');
+
+//search
+// Route::get ( '/search', function () {
+// } );
