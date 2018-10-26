@@ -42,7 +42,8 @@
           <h4 class="card-title">Nomor Surat Masuk : {{$no_surat}}</h4>
           <h4 class="card-title">Tujuan Disposisi  : 
           
-          {{$data->tujuan}}
+            {{ implode(", ", unserialize($data->tujuan)) }}
+
           </h4>
           <h4 class="card-title">Tanggal Penyelesaian Surat : {{Common::indDate(date("d F Y", strtotime($data->batas_waktu)))}} </h4>
           <h4 class="card-title">Sifat Disposisi : <br>{{$data->sifat_disposisi}}</h4>  

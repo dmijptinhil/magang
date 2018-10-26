@@ -16,14 +16,8 @@
             <div class="col-md-4">
               <div class="form-group">
                 {{Form::label('tujuan', 'Tujuan Disposisi',['class' => 'bmd-label-floating'])}} <br>
-                <!-- {{Form::text('tujuan', '',['class' => 'form-control', 'placeholder' => '', 'required'])}} -->
 
                 <div style="text-align: left; padding-left: 70px">
-               <!--  {{Form::checkbox('tujuan[]', 'IPDS')}} IPDS <br>
-                {{Form::checkbox('tujuan[]', 'Produksi')}} Produksi <br>
-                {{Form::checkbox('tujuan[]', 'Distribusi')}} Distribusi <br>
-                {{Form::checkbox('tujuan[]', 'Nerwilis')}} Nerwilis <br>
-                {{Form::checkbox('tujuan[]', 'Keuangan')}} Keuangan <br> -->
                 <input type="checkbox" name="tujuan[]" value="IPDS"> IPDS <br>
                 <input type="checkbox" name="tujuan[]" value="Produksi"> Produksi <br>
                 <input type="checkbox" name="tujuan[]" value="Distribusi"> Distribusi <br>

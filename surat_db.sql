@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 26, 2018 at 04:19 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Host: localhost
+-- Generation Time: Oct 26, 2018 at 05:16 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,14 +39,6 @@ CREATE TABLE `disposisis` (
   `inletter_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `disposisis`
---
-
-INSERT INTO `disposisis` (`id`, `tujuan`, `catatan`, `batas_waktu`, `sifat_disposisi`, `created_at`, `updated_at`, `inletter_id`, `user_id`) VALUES
-(33, 'IPDS,Produksi', 'ipds dan produksi mengirimkan masing-masing 3 orang', '2018-10-26', 'SR', '2018-10-25 16:54:24', '2018-10-25 16:54:24', 12, 2),
-(34, 'Nerwilis,Keuangan', 'disposisi', '2018-10-27', 'SR', '2018-10-25 18:25:29', '2018-10-25 18:25:29', 9, 2);
 
 -- --------------------------------------------------------
 
@@ -82,7 +74,8 @@ INSERT INTO `inletters` (`id`, `no_surat`, `klasifikasi`, `asal`, `perihal`, `tu
 (9, 'A/90/XX/CC/X/2018', 'Dinas', 'Dinas Lingkungan Hidup', 'Permintaan Data', 'IPDS', 'permintaan data lingkungan kotor tahun 2009-2018', 'Janni', '', '2018-10-19 23:12:34', '2018-10-19 23:22:52', 3, NULL),
 (10, 'A/002/PT/NF/X/2018', 'Penting', 'PT. Sejahtera', 'Penyuluhan', 'Kepala', 'penyuluhan tentang kesejahteraan pegawai', 'Muhammad', '3_145610048_BAB_II_1540453749.pdf', '2018-10-19 23:15:35', '2018-10-25 00:49:09', 3, NULL),
 (11, '11/11/11/2018', 'Penting', 'Kementrian Hukum dan Ham', 'undangan rapat', 'Kepala', 'rapat acara hukum', NULL, NULL, '2018-10-25 15:25:48', '2018-10-25 15:25:48', 1, NULL),
-(12, '01/2/X/2018', 'Umum', 'Kemenketrans', 'Permohonan', 'Keuangan', 'permohonan untuk tidak mempublikasikan data', NULL, NULL, '2018-10-25 15:27:20', '2018-10-25 15:27:20', 1, NULL);
+(12, '01/2/X/2018', 'Umum', 'Kemenketrans', 'Permohonan', 'Keuangan', 'permohonan untuk tidak mempublikasikan data', NULL, NULL, '2018-10-25 15:27:20', '2018-10-25 15:27:20', 1, NULL),
+(13, 'sfsdfdsfsd', 'Penting', 'ssdfds', 'sfsdf', 'Kepala', 'sfsdfdsf', NULL, NULL, '2018-10-25 19:52:45', '2018-10-25 19:52:45', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -183,8 +176,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'b3NUhUi5TcmB9fYCuZfTYk8UMbdZ27vn1weCIdz0fj2BDNYtZVjeZJNl7iOm', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
-(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'McVagp5rPp6lewlwDfNArXNzvOWIw23I1qdRJKdn7bXP6D6oS1CzDsNy32ds', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
+(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'WEPSp0sI1r2svav2W5xlJCaZ9WEop9dkoDucXNodH80t0TbMTGUfjpS477IF', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
+(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, '6QGdqSeQ0GBsNn74ckWQY0kpwv8ssllJwOIOJkad3FLeKUwerXARQ0F60OnX', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
 (3, 'Kasubag. TU', 'tu@bps.go.id', '$2y$10$vbVexqcErI5RbkeQEn8.ze5Nylrlqd9NxR3YQsqInzAZFL0cF82r.', 3, '0CZqe41ugVmetA6xsqNatNCCib16nRDOTypX1KuC06Pgfz8rlnJNg5pGT8Ud', '2018-10-15 06:08:08', '2018-10-19 21:15:50'),
 (9, 'Distribusi', 'distribusi@bps.go.id', '$2y$10$iloy7VJjbOPn6poA/HnjYOpO4ef.SBiuTNZ0C6f3mI8ldLll757JS', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-19 21:38:04');
 
@@ -237,13 +230,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `disposisis`
 --
 ALTER TABLE `disposisis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `inletters`
 --
 ALTER TABLE `inletters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `migrations`
