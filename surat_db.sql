@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 27, 2018 at 05:56 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: 127.0.0.1
+-- Generation Time: Oct 27, 2018 at 04:21 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -83,7 +83,8 @@ INSERT INTO `inletters` (`id`, `no_surat`, `klasifikasi`, `asal`, `perihal`, `tu
 (11, '11/11/11/2018', 'Penting', 'Kementrian Hukum dan Ham', 'undangan rapat', 3, 'rapat acara hukum', NULL, NULL, '2018-10-25 15:25:48', '2018-10-25 15:25:48', 1, NULL),
 (12, '01/2/X/2018', 'Umum', 'Kemenketrans', 'Permohonan', 3, 'permohonan untuk tidak mempublikasikan data', NULL, NULL, '2018-10-25 15:27:20', '2018-10-25 15:27:20', 1, NULL),
 (13, 'sfsdfdsfsd', 'Penting', 'ssdfds', 'sfsdf', 3, 'sfsdfdsf', NULL, NULL, '2018-10-25 19:52:45', '2018-10-25 19:52:45', 1, NULL),
-(14, 'fsdf', 'Penting', 'sdf', 'sdf', 1, 'sdf', NULL, NULL, '2018-10-26 20:19:13', '2018-10-26 20:19:13', 1, NULL);
+(14, 'fsdf', 'Penting', 'sdf', 'sdf', 1, 'sdf', NULL, NULL, '2018-10-26 20:19:13', '2018-10-26 20:19:13', 1, NULL),
+(15, 'A/005/BPS/X/2018', 'Penting', 'Dinas Pendidikan', 'Undangan sebagai peserta', 2, 'a', NULL, NULL, '2018-10-26 21:29:55', '2018-10-26 21:29:55', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,11 +128,11 @@ CREATE TABLE `outletters` (
   `id` int(10) UNSIGNED NOT NULL,
   `no_surat` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `klasifikasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `asal` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `asal` int(10) NOT NULL,
   `perihal` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tujuan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `detail_surat` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `petugas` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `petugas` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `filename` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -144,11 +145,12 @@ CREATE TABLE `outletters` (
 --
 
 INSERT INTO `outletters` (`id`, `no_surat`, `klasifikasi`, `asal`, `perihal`, `tujuan`, `detail_surat`, `petugas`, `filename`, `created_at`, `updated_at`, `user_id`, `date`) VALUES
-(1, 'B/002/BPS/X/2018', 'biasa edited again', 'IPDS', 'Permintaan Data', 'Kominfo', 'surat ini ditujukan untuk memperoleh permintaan data DDA 2018', 'Aan', NULL, '2018-10-14 19:13:35', '2018-10-19 05:34:09', 3, '2018-10-15'),
-(3, 'keluar edit', 'Penting', 'sdf', 'sdf', 'Kepala', 'sdf', 'sdf', 'httpd-vhosts_1539953094.conf', '2018-10-19 05:39:54', '2018-10-19 05:45:12', 2, '2018-10-19'),
-(4, 'outout ed', 'Penting', 'sdf', 'sdf', 'Kepala', 'sdf', 'sdf', 'Screen Shot 2018-09-16 at 10.16.53 AM_1539966411.png', '2018-10-19 09:24:20', '2018-10-19 09:26:51', 1, '2018-10-19'),
-(7, 'a', 'Penting', 'IPDS', 'a', 'a', 'a', 'a', '_1540022849.gitignore', '2018-10-20 01:07:08', '2018-10-20 01:07:29', 3, NULL),
-(8, 'B/001/KEU/BPS/X/2018', 'Dinas', 'Keuangan', 'Kebutuhan data', 'Dinas Lingkungan Hidup', 'kebutuhan data yang anda minta akan kami kirim di link berikut https://bit.ly/statistik.com', 'Zaelani', NULL, '2018-10-20 23:03:49', '2018-10-20 23:03:49', 1, NULL);
+(1, 'B/002/BPS/X/2018', 'biasa edited again', 0, 'Permintaan Data', 'Kominfo', 'surat ini ditujukan untuk memperoleh permintaan data DDA 2018', 'Aan', NULL, '2018-10-14 19:13:35', '2018-10-19 05:34:09', 3, '2018-10-15'),
+(3, 'keluar edit', 'Penting', 0, 'sdf', 'Kepala', 'sdf', 'sdf', 'httpd-vhosts_1539953094.conf', '2018-10-19 05:39:54', '2018-10-19 05:45:12', 2, '2018-10-19'),
+(4, 'outout ed', 'Penting', 0, 'sdf', 'Kepala', 'sdf', 'sdf', 'Screen Shot 2018-09-16 at 10.16.53 AM_1539966411.png', '2018-10-19 09:24:20', '2018-10-19 09:26:51', 1, '2018-10-19'),
+(7, 'a', 'Penting', 0, 'a', 'a', 'a', 'a', '_1540022849.gitignore', '2018-10-20 01:07:08', '2018-10-20 01:07:29', 3, NULL),
+(8, 'B/001/KEU/BPS/X/2018', 'Dinas', 0, 'Kebutuhan data', 'Dinas Lingkungan Hidup', 'kebutuhan data yang anda minta akan kami kirim di link berikut https://bit.ly/statistik.com', 'Zaelani', NULL, '2018-10-20 23:03:49', '2018-10-20 23:03:49', 1, NULL),
+(9, '090/BPS/DTB/X/2018', 'Dinas', 9, 'Surat Permohonan', 'Dinas Lingkungan Hidup', 'permohonan data', NULL, NULL, '2018-10-27 06:05:59', '2018-10-27 06:05:59', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -184,10 +186,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'WEPSp0sI1r2svav2W5xlJCaZ9WEop9dkoDucXNodH80t0TbMTGUfjpS477IF', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
-(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'xbJTF3VbjozOwozjO3EXEMIPfp302zUfLP7TIH6b64UrdzOOBzUFEY01zjFB', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
+(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'EeiATxugWO0z6SiVLufjan0DSoNnAKqM46KITGeSknuK6KgkU0hOoNLSG73y', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
+(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'h2VAkkM3KaTV08p76iRLsyOftjQoYtejJeyPYWmRvDWXSm7tFoxSNyhaYj2d', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
 (3, 'Kasubag. TU', 'tu@bps.go.id', '$2y$10$vbVexqcErI5RbkeQEn8.ze5Nylrlqd9NxR3YQsqInzAZFL0cF82r.', 3, '0CZqe41ugVmetA6xsqNatNCCib16nRDOTypX1KuC06Pgfz8rlnJNg5pGT8Ud', '2018-10-15 06:08:08', '2018-10-19 21:15:50'),
-(9, 'Distribusi', 'distribusi@bps.go.id', '$2y$10$iloy7VJjbOPn6poA/HnjYOpO4ef.SBiuTNZ0C6f3mI8ldLll757JS', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-19 21:38:04');
+(9, 'Distribusi', 'distribusi@bps.go.id', '$2y$10$iloy7VJjbOPn6poA/HnjYOpO4ef.SBiuTNZ0C6f3mI8ldLll757JS', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-19 21:38:04'),
+(10, 'Sosial', 'sosial@bps.go.id', '$2y$10$TgpMyGJNDduryueaEZg8SeFvlUDfXeeiMQXlupFa1q9qoD1bPbbue', 4, NULL, '2018-10-27 05:22:28', '2018-10-27 05:22:28'),
+(11, 'Produksi', 'produksi@bps.go.id', '$2y$10$mfvRo2tATz45xSp2IXGhMO3Yt5jT1JsF3BVg9PzEmimWjA0Xo4XDy', 4, NULL, '2018-10-27 05:25:43', '2018-10-27 05:25:43'),
+(12, 'Nerwilis', 'nerwilis@bps.go.id', '$2y$10$TVmYJ5HUqHUJoqfJ0xEWJOKsWRzuXBU.iq5ywaIsmYqvWOvTO3uHe', 4, NULL, '2018-10-27 05:26:13', '2018-10-27 05:26:40'),
+(13, 'Operator', 'operator@bps.go.id', '$2y$10$tF56Dgw2rwXgkofqJAAYLuV0BoMkQga5FPnQJ5BrhhlzkW6VABMNy', 5, NULL, '2018-10-27 05:28:08', '2018-10-27 05:30:25'),
+(14, 'IPDS', 'ipds@bps.go.id', '$2y$10$o0u0K6d8OWUxuw8QzAzzN.vhcwDX4aOhbysC05G/0F4S5SMVtCIn2', 4, NULL, '2018-10-27 05:29:15', '2018-10-27 05:29:15');
 
 --
 -- Indexes for dumped tables
@@ -244,7 +251,7 @@ ALTER TABLE `disposisis`
 -- AUTO_INCREMENT for table `inletters`
 --
 ALTER TABLE `inletters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -256,13 +263,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `outletters`
 --
 ALTER TABLE `outletters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
