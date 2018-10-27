@@ -30,9 +30,9 @@ class DashboardController extends Controller
     public function index()
     {
         //variabel surat masuk hari ini
-        $masuk = Inletter::whereDate('created_at', '=', Carbon::today())->paginate(5);
+        $masuk = Inletter::where('tujuan', '=', auth()->user()->id)->whereDate('created_at', '=', Carbon::today())->paginate(5);
         //variabel surat keluar hari ini
-        $keluar = Outletter::whereDate('created_at', '=', Carbon::today())->paginate(5);
+        $keluar = Outletter::where('tujuan', '=', auth()->user()->id)->whereDate('created_at', '=', Carbon::today())->paginate(5);
         //variabel untuk menghitung jumlah surat
         $no_all_masuk = Inletter::all()->count();
         $no_all_keluar = Outletter::all()->count();
