@@ -30,7 +30,6 @@ class OutlettersController extends Controller
         $outletters = Outletter::orderBy('created_at', 'desc')->paginate(10);
 
         return view('outletters.index', compact('outletters'));
-
     }
 
     public function upload($id_outletter){

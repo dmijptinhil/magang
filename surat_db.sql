@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2018 at 05:56 AM
+-- Generation Time: Oct 27, 2018 at 04:36 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -127,7 +127,7 @@ CREATE TABLE `outletters` (
   `id` int(10) UNSIGNED NOT NULL,
   `no_surat` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `klasifikasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `asal` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `asal` int(10) NOT NULL,
   `perihal` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tujuan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `detail_surat` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -144,11 +144,11 @@ CREATE TABLE `outletters` (
 --
 
 INSERT INTO `outletters` (`id`, `no_surat`, `klasifikasi`, `asal`, `perihal`, `tujuan`, `detail_surat`, `petugas`, `filename`, `created_at`, `updated_at`, `user_id`, `date`) VALUES
-(1, 'B/002/BPS/X/2018', 'biasa edited again', 'IPDS', 'Permintaan Data', 'Kominfo', 'surat ini ditujukan untuk memperoleh permintaan data DDA 2018', 'Aan', NULL, '2018-10-14 19:13:35', '2018-10-19 05:34:09', 3, '2018-10-15'),
-(3, 'keluar edit', 'Penting', 'sdf', 'sdf', 'Kepala', 'sdf', 'sdf', 'httpd-vhosts_1539953094.conf', '2018-10-19 05:39:54', '2018-10-19 05:45:12', 2, '2018-10-19'),
-(4, 'outout ed', 'Penting', 'sdf', 'sdf', 'Kepala', 'sdf', 'sdf', 'Screen Shot 2018-09-16 at 10.16.53 AM_1539966411.png', '2018-10-19 09:24:20', '2018-10-19 09:26:51', 1, '2018-10-19'),
-(7, 'a', 'Penting', 'IPDS', 'a', 'a', 'a', 'a', '_1540022849.gitignore', '2018-10-20 01:07:08', '2018-10-20 01:07:29', 3, NULL),
-(8, 'B/001/KEU/BPS/X/2018', 'Dinas', 'Keuangan', 'Kebutuhan data', 'Dinas Lingkungan Hidup', 'kebutuhan data yang anda minta akan kami kirim di link berikut https://bit.ly/statistik.com', 'Zaelani', NULL, '2018-10-20 23:03:49', '2018-10-20 23:03:49', 1, NULL);
+(1, 'B/002/BPS/X/2018', 'biasa edited again', 2, 'Permintaan Data', 'Kominfo', 'surat ini ditujukan untuk memperoleh permintaan data DDA 2018', 'Aan', NULL, '2018-10-14 19:13:35', '2018-10-19 05:34:09', 3, '2018-10-15'),
+(3, 'keluar edit', 'Penting', 2, 'sdf', 'Kepala', 'sdf', 'sdf', 'httpd-vhosts_1539953094.conf', '2018-10-19 05:39:54', '2018-10-19 05:45:12', 2, '2018-10-19'),
+(4, 'outout ed', 'Penting', 3, 'sdf', 'Kepala', 'sdf', 'sdf', 'Screen Shot 2018-09-16 at 10.16.53 AM_1539966411.png', '2018-10-19 09:24:20', '2018-10-19 09:26:51', 1, '2018-10-19'),
+(7, 'a', 'Penting', 3, 'a', 'a', 'a', 'a', '_1540022849.gitignore', '2018-10-20 01:07:08', '2018-10-20 01:07:29', 3, NULL),
+(8, 'B/001/KEU/BPS/X/2018', 'Dinas', 3, 'Kebutuhan data', 'Dinas Lingkungan Hidup', 'kebutuhan data yang anda minta akan kami kirim di link berikut https://bit.ly/statistik.com', 'Zaelani', NULL, '2018-10-20 23:03:49', '2018-10-20 23:03:49', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'WEPSp0sI1r2svav2W5xlJCaZ9WEop9dkoDucXNodH80t0TbMTGUfjpS477IF', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
-(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'xbJTF3VbjozOwozjO3EXEMIPfp302zUfLP7TIH6b64UrdzOOBzUFEY01zjFB', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
+(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'YNkrbMETLPzMKbpAVy4YAwbiZ3ItHU5adbB98F28XrExcTmNp9cTu2EupKDf', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
 (3, 'Kasubag. TU', 'tu@bps.go.id', '$2y$10$vbVexqcErI5RbkeQEn8.ze5Nylrlqd9NxR3YQsqInzAZFL0cF82r.', 3, '0CZqe41ugVmetA6xsqNatNCCib16nRDOTypX1KuC06Pgfz8rlnJNg5pGT8Ud', '2018-10-15 06:08:08', '2018-10-19 21:15:50'),
 (9, 'Distribusi', 'distribusi@bps.go.id', '$2y$10$iloy7VJjbOPn6poA/HnjYOpO4ef.SBiuTNZ0C6f3mI8ldLll757JS', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-19 21:38:04');
 

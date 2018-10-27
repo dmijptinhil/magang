@@ -30,10 +30,8 @@ class InlettersController extends Controller
     {
 
      $inletters = Inletter::orderBy('created_at', 'desc')->paginate(10);
-
      return view('inletters.index', compact('inletters'));
-     
- }
+    }
 
     /**
      * Show the form for creating a new resource.
