@@ -32,7 +32,7 @@ class InlettersController extends Controller
      $inletters = Inletter::orderBy('created_at', 'desc')->paginate(10);
 
      return view('inletters.index', compact('inletters'));
-
+     
  }
 
     /**
@@ -42,8 +42,8 @@ class InlettersController extends Controller
      */
     public function create()
     {
-
-        return view ('inletters.create');
+        $users = User::all();
+        return view ('inletters.create')->with('users', $users);
     }
 
     /**
@@ -94,7 +94,8 @@ class InlettersController extends Controller
     public function edit($id)
     {
      $inletter = Inletter::find($id); 
-     return view('inletters.edit')->with('inletter', $inletter);
+     $users = User::all();
+     return view('inletters.edit')->with('inletter', $inletter)->with('users', $users);
  }
 
     /**

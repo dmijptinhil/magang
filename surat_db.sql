@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 26, 2018 at 05:16 AM
+-- Generation Time: Oct 27, 2018 at 05:56 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -40,6 +40,13 @@ CREATE TABLE `disposisis` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `disposisis`
+--
+
+INSERT INTO `disposisis` (`id`, `tujuan`, `catatan`, `batas_waktu`, `sifat_disposisi`, `created_at`, `updated_at`, `inletter_id`, `user_id`) VALUES
+(37, 'a:1:{i:0;s:8:\"Keuangan\";}', 'sdf', '2018-10-26', 'SR', '2018-10-25 20:21:26', '2018-10-25 20:25:24', 13, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -52,7 +59,7 @@ CREATE TABLE `inletters` (
   `klasifikasi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `asal` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `perihal` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tujuan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tujuan` int(10) NOT NULL,
   `detail_surat` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `petugas` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `filename` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -67,15 +74,16 @@ CREATE TABLE `inletters` (
 --
 
 INSERT INTO `inletters` (`id`, `no_surat`, `klasifikasi`, `asal`, `perihal`, `tujuan`, `detail_surat`, `petugas`, `filename`, `created_at`, `updated_at`, `user_id`, `date`) VALUES
-(1, 'B/001/UND/TU/DINP/DNP/X/2018', 'Biasa', 'Dinasi Pendidikan', 'Undangan', 'Kepala BPS', 'ini merupakan surat undangan pada acara Ulang tahun dinas pendidikan ke-70 pada tanggal 20 Oktober 2018 pukul 08.00-12.00 bertempat di swiss bell', 'nofita', NULL, '2018-10-14 00:33:06', '2018-10-20 22:25:49', 3, '2018-10-14'),
-(3, 'C/90/FST/UNJA/X/2018', 'Penting', 'Unja', 'Rapat', 'IPDS', 'rapat pada tanggal 20 Oktober 2018 di FST Unja', 'Muhammad', '', '2018-10-14 09:41:48', '2018-10-19 23:30:51', 3, '2018-10-14'),
-(7, 'A/007/HMJ/PMIPA/X/2018', 'Umum', 'Pendidikan Fisika - Unja', 'Undangan Sebagai Tamu', 'IPDS', 'undangan sebagai tamu di acara ulang tahun HMJ PMIP yang ke-14 di balairung pukul 09.00-13.00 pad tanggal 30 oktober 2018 dresscode bebas', 'Nofita', '', '2018-10-19 23:01:48', '2018-10-19 23:26:58', 3, NULL),
-(8, 'B/009/NF/X/2018', 'Penting', 'PT. NF Sejati', 'Permintaan Data', 'Nerwilis', 'permintaan data mengenai data statistik kemiskinan 2008-2018', 'Muhammad', '', '2018-10-19 23:10:28', '2018-10-19 23:25:41', 3, NULL),
-(9, 'A/90/XX/CC/X/2018', 'Dinas', 'Dinas Lingkungan Hidup', 'Permintaan Data', 'IPDS', 'permintaan data lingkungan kotor tahun 2009-2018', 'Janni', '', '2018-10-19 23:12:34', '2018-10-19 23:22:52', 3, NULL),
-(10, 'A/002/PT/NF/X/2018', 'Penting', 'PT. Sejahtera', 'Penyuluhan', 'Kepala', 'penyuluhan tentang kesejahteraan pegawai', 'Muhammad', '3_145610048_BAB_II_1540453749.pdf', '2018-10-19 23:15:35', '2018-10-25 00:49:09', 3, NULL),
-(11, '11/11/11/2018', 'Penting', 'Kementrian Hukum dan Ham', 'undangan rapat', 'Kepala', 'rapat acara hukum', NULL, NULL, '2018-10-25 15:25:48', '2018-10-25 15:25:48', 1, NULL),
-(12, '01/2/X/2018', 'Umum', 'Kemenketrans', 'Permohonan', 'Keuangan', 'permohonan untuk tidak mempublikasikan data', NULL, NULL, '2018-10-25 15:27:20', '2018-10-25 15:27:20', 1, NULL),
-(13, 'sfsdfdsfsd', 'Penting', 'ssdfds', 'sfsdf', 'Kepala', 'sfsdfdsf', NULL, NULL, '2018-10-25 19:52:45', '2018-10-25 19:52:45', 1, NULL);
+(1, 'B/001/UND/TU/DINP/DNP/X/2018', 'Biasa', 'Dinasi Pendidikan', 'Undangan', 2, 'ini merupakan surat undangan pada acara Ulang tahun dinas pendidikan ke-70 pada tanggal 20 Oktober 2018 pukul 08.00-12.00 bertempat di swiss bell', 'nofita', NULL, '2018-10-14 00:33:06', '2018-10-20 22:25:49', 3, '2018-10-14'),
+(3, 'C/90/FST/UNJA/X/2018', 'Penting', 'Unja', 'Rapat', 2, 'rapat pada tanggal 20 Oktober 2018 di FST Unja', 'Muhammad', '', '2018-10-14 09:41:48', '2018-10-19 23:30:51', 3, '2018-10-14'),
+(7, 'A/007/HMJ/PMIPA/X/2018', 'Umum', 'Pendidikan Fisika - Unja', 'Undangan Sebagai Tamu', 3, 'undangan sebagai tamu di acara ulang tahun HMJ PMIP yang ke-14 di balairung pukul 09.00-13.00 pad tanggal 30 oktober 2018 dresscode bebas', 'Nofita', '', '2018-10-19 23:01:48', '2018-10-19 23:26:58', 3, NULL),
+(8, 'B/009/NF/X/2018', 'Penting', 'PT. NF Sejati', 'Permintaan Data', 3, 'permintaan data mengenai data statistik kemiskinan 2008-2018', 'Muhammad', '', '2018-10-19 23:10:28', '2018-10-19 23:25:41', 3, NULL),
+(9, 'A/90/XX/CC/X/2018', 'Dinas', 'Dinas Lingkungan Hidup', 'Permintaan Data', 3, 'permintaan data lingkungan kotor tahun 2009-2018', 'Janni', '', '2018-10-19 23:12:34', '2018-10-19 23:22:52', 3, NULL),
+(10, 'A/002/PT/NF/X/2018', 'Penting', 'PT. Sejahtera', 'Penyuluhan', 3, 'penyuluhan tentang kesejahteraan pegawai', 'Muhammad', '3_145610048_BAB_II_1540453749.pdf', '2018-10-19 23:15:35', '2018-10-25 00:49:09', 3, NULL),
+(11, '11/11/11/2018', 'Penting', 'Kementrian Hukum dan Ham', 'undangan rapat', 3, 'rapat acara hukum', NULL, NULL, '2018-10-25 15:25:48', '2018-10-25 15:25:48', 1, NULL),
+(12, '01/2/X/2018', 'Umum', 'Kemenketrans', 'Permohonan', 3, 'permohonan untuk tidak mempublikasikan data', NULL, NULL, '2018-10-25 15:27:20', '2018-10-25 15:27:20', 1, NULL),
+(13, 'sfsdfdsfsd', 'Penting', 'ssdfds', 'sfsdf', 3, 'sfsdfdsf', NULL, NULL, '2018-10-25 19:52:45', '2018-10-25 19:52:45', 1, NULL),
+(14, 'fsdf', 'Penting', 'sdf', 'sdf', 1, 'sdf', NULL, NULL, '2018-10-26 20:19:13', '2018-10-26 20:19:13', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +185,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'WEPSp0sI1r2svav2W5xlJCaZ9WEop9dkoDucXNodH80t0TbMTGUfjpS477IF', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
-(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, '6QGdqSeQ0GBsNn74ckWQY0kpwv8ssllJwOIOJkad3FLeKUwerXARQ0F60OnX', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
+(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'xbJTF3VbjozOwozjO3EXEMIPfp302zUfLP7TIH6b64UrdzOOBzUFEY01zjFB', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
 (3, 'Kasubag. TU', 'tu@bps.go.id', '$2y$10$vbVexqcErI5RbkeQEn8.ze5Nylrlqd9NxR3YQsqInzAZFL0cF82r.', 3, '0CZqe41ugVmetA6xsqNatNCCib16nRDOTypX1KuC06Pgfz8rlnJNg5pGT8Ud', '2018-10-15 06:08:08', '2018-10-19 21:15:50'),
 (9, 'Distribusi', 'distribusi@bps.go.id', '$2y$10$iloy7VJjbOPn6poA/HnjYOpO4ef.SBiuTNZ0C6f3mI8ldLll757JS', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-19 21:38:04');
 
@@ -230,13 +238,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `disposisis`
 --
 ALTER TABLE `disposisis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `inletters`
 --
 ALTER TABLE `inletters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `migrations`

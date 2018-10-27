@@ -17,8 +17,9 @@ class Inletter extends Model
     public function disposisi(){
     	return $this->hasOne('App\Disposisi', 'inletter_id');
     }
-    //relationship with user
-     public function user(){
-    	return $this->belongsTo('App/User');
+
+    public function getTujuan()
+    {
+        return $this->belongsTo('App\User', 'tujuan');
     }
 }

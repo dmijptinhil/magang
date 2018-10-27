@@ -37,4 +37,5 @@ class User extends Authenticatable
      public function outletters(){
         return $this->hasMany('App\Outletter');
     }
+
 }

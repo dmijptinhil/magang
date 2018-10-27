@@ -50,7 +50,7 @@
           <h4 class="card-title">Klasifikasi Surat :{{$inletter->klasifikasi}} </h4>
           <h4 class="card-title">Asal Surat  : {{$inletter->asal}}</h4>
           <h4 class="card-title">Perihal Surat : {{$inletter->perihal}}</h4>
-          <h4 class="card-title">Tujuan Surat : {{$inletter->tujuan}}</h4>
+          <h4 class="card-title">Tujuan Surat : {{$inletter->getTujuan->name}}</h4>
           <h4 class="card-title">Ringkasan Surat : <br>{{$inletter->detail_surat}}</h4>  
         </div>
         <div class="card-footer">
