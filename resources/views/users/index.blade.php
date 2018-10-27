@@ -24,15 +24,17 @@
                 <tr>
                   <td>{{ $user->name }}</td>
                   <td>{{ $user->email }}</td>
-                  <td>{{ $user->created_at->format('h:i a, d F, Y ') }}</td>
+                  <td>{{Common::indDate($user->created_at->format('l, d F Y'))}}</td>
                     @if($user->role == 1)
                      <td>Administrator</td>
                     @elseif($user->role == 2)
                      <td>Pimpinan</td>
                     @elseif($user->role == 3)
                      <td>Kasubag. TU</td>
+                    @elseif($user->role == 5)
+                      <td>Operator</td>
                     @else
-                     <td>Karyawan</td>
+                     <td>Pegawai</td>
                     @endif
                   <td>
                     <a href="{{ route('userEdit', $user->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>

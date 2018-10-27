@@ -5,10 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Outletter;
 use DB;
+use App\User;
 use Illuminate\Support\Facades\File;
 
 class OutlettersController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+     public function __construct()
+     {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +64,8 @@ class OutlettersController extends Controller
      */
     public function create()
     {
-        return view ('outletters.create');
+        $users = User::all();
+        return view ('outletters.create')->with('users', $users);
     }
 
     /**
@@ -102,8 +113,9 @@ class OutlettersController extends Controller
      */
     public function edit($id)
     {
-         $outletter = Outletter::find($id); 
-        return view('outletters.edit')->with('outletter', $outletter);
+        $outletter = Outletter::find($id); 
+        $users = User::all();
+        return view('outletters.edit')->with('outletter', $outletter)->with('users', $users);
     }
 
     /**

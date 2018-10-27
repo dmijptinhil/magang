@@ -34,11 +34,13 @@
                 <div class="form-group">
                   {{Form::label('asal', 'Asal Surat',['class' => 'bmd-label-floating'])}}
                   <select class="form-control" name="asal"> 
-                    <option value="IPDS">IPDS</option>
-                    <option value="Keuangan">Keuangan</option>
-                    <option value="Sosial">Sosial</option>
-                    <option value="Distribusi">Distribusi</option>
-                    <option value="Nerwilis">Nerwilis</option>
+
+                  @foreach($users as $user)
+                 <!--  @if($user->id != 1 && $user->id != 13) -->
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                  <!-- @endif -->
+                  @endforeach
+
                   </select> 
                 </div>
               </div>

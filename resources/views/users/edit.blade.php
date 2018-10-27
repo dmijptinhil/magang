@@ -31,6 +31,7 @@
                 <option value="2" @if($user->role=="2") selected @endif>Pimpinan</option>
                 <option value="3" @if($user->role=="3") selected @endif>Kasubag. TU</option>
                 <option value="4" @if($user->role=="4") selected @endif>Pegawai</option>
+                <option value="5" @if($user->role=="5") selected @endif>Operator</option>
               </select>            
             </div> 
          </div>

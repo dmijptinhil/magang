@@ -35,12 +35,10 @@
               <div class="form-group">
                 {{Form::label('asal', 'Asal Surat',['class' => 'bmd-label-floating'])}}
                 <select class="form-control" name="asal">
-                  <option value="Kepala" @if($outletter->asal=="Kepala") selected @endif>Kepala</option>
-                  <option value="IPDS" @if($outletter->asal=="IPDS") selected @endif>IPDS</option>
-                  <option value="Sosial" @if($outletter->asal=="Sosial") selected @endif>Sosial</option>
-                  <option value="Produksi" @if($outletter->asal=="Produksi") selected @endif>Produksi</option>
-                  <option value="Distribusi" @if($outletter->asal=="Distribusi") selected @endif>Distribusi</option>
-                  <option value="Nerwilis" @if($outletter->asal=="Nerwilis") selected @endif>Nerwilis</option>
+                    @foreach($users as $user)
+                    <option value="{{ $user->id }}" @if($outletter->tujuan == $user->id) selected @endif>{{ $user->name }}</option>
+                    @endforeach
+
                 </select>
               </div>
             </div>
