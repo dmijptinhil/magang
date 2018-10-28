@@ -30,7 +30,7 @@
                     @elseif($user->role == 2)
                      <td>Pimpinan</td>
                     @elseif($user->role == 3)
-                     <td>Kasubag. TU</td>
+                     <td>Tata Usaha</td>
                     @elseif($user->role == 5)
                       <td>Operator</td>
                     @else

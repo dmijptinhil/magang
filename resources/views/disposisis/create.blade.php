@@ -13,22 +13,26 @@
         {!! Form::open(['action' => 'DisposisisController@store', 'method' => 'POST']) !!}
         <input type="hidden" name="id_inletter" value="{{ $id_inletter }}">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
               <div class="form-group">
                 {{Form::label('tujuan', 'Tujuan Disposisi',['class' => 'bmd-label-floating'])}} <br>
 
                 <div style="text-align: left; padding-left: 70px">
-                <input type="checkbox" name="tujuan[]" value="IPDS"> IPDS <br>
-                <input type="checkbox" name="tujuan[]" value="Produksi"> Produksi <br>
+                
+                <!-- <input type="checkbox" name="tujuan[]" value="Produksi"> Produksi <br>
                 <input type="checkbox" name="tujuan[]" value="Distribusi"> Distribusi <br>
                 <input type="checkbox" name="tujuan[]" value="Nerwilis"> Nerwilis <br>
-                <input type="checkbox" name="tujuan[]" value="Keuangan"> Keuangan <br>
+                <input type="checkbox" name="tujuan[]" value="Keuangan"> Keuangan <br> -->
+                @foreach($users as $user)
+                
+                  <input type="checkbox" name="tujuan[]" value="{{ $user->id}}"> {{ $user->name }} <br>
 
+                  @endforeach
                 </div>
 
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 {{Form::label('batas_waktu', 'Batas Penyelesaian',['class' => 'bmd-label-floating'])}}
                 {{Form::date('batas_waktu', '',['class' => 'form-control', 'placeholder' => '', 'required'])}}

@@ -17,8 +17,9 @@ class Disposisi extends Model
     public function inletters(){
     	return $this->belongsTo('App\Inletter', 'inletter_id');
     }
-    //relationship with user
-    public function user(){
-    	return $this->belongsTo('App/User');
+    
+     public function getTujuan()
+    {
+        return $this->belongsTo('App\User', 'tujuan');
     }
 }

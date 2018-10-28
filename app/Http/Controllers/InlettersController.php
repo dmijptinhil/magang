@@ -40,7 +40,7 @@ class InlettersController extends Controller
      */
     public function create()
     {
-        $users = User::all()->except([1, 3, 13]);
+        $users = User::all()->except([1, 3]);
         return view ('inletters.create')->with('users', $users);
     }
 
@@ -92,7 +92,7 @@ class InlettersController extends Controller
     public function edit($id)
     {
      $inletter = Inletter::find($id); 
-     $users = User::all()->except([1, 3, 13]);
+     $users = User::all()->except([1, 3, 10]);
      return view('inletters.edit')->with('inletter', $inletter)->with('users', $users);
  }
 

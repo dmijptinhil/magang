@@ -159,7 +159,7 @@
         </div>
         <p class="card-category"> Surat Masuk</p>
           <h3 class="card-title">
-            tidak ada surat masuk hari ini dari {{Auth::user()->name}}
+            tidak ada surat masuk hari ini untuk {{Auth::user()->name}}
           </h3>
       </div>
       <div class="card-footer">

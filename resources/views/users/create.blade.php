@@ -29,7 +29,7 @@
           <select name="role" class="form-control">
               <option value="1">Admin</option>
               <option value="2">Pimpinan</option>
-              <option value="3">Kasubag. TU</option>
+              <option value="3">Tata Usaha</option>
               <option value="4">Pegawai</option>
               <option value="5">Operator</option>
             </select>           

@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Disposisi;
 use App\Inletter;
 
 class DisposisisController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +26,10 @@ class DisposisisController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
       $disposisis=\App\Disposisi::all();
-      return view('disposisis.create', compact('disposisis'));
+      return view('disposisis.create', compact('disposisis', $user->disposisis));
   }
 
     /**
@@ -26,7 +39,8 @@ class DisposisisController extends Controller
      */
     public function create($id_inletter)
     {
-       return view('disposisis/create')->with('id_inletter', $id_inletter);
+       $users = User::all()->except([1, 3, 2]);
+       return view('disposisis/create')->with('id_inletter', $id_inletter)->with('users', $users);
    }
 
     /**
@@ -74,7 +88,8 @@ class DisposisisController extends Controller
     public function edit($id)
     {
        $disposisi = Disposisi::find($id); 
-       return view('disposisis.edit')->with('disposisi', $disposisi);
+       $users = User::all()->except([1, 3, 2]);
+       return view('disposisis.edit')->with('disposisi', $disposisi)->with('users', $users);
    }
 
     /**
