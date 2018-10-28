@@ -18,12 +18,7 @@
                 {{Form::label('tujuan', 'Tujuan Disposisi',['class' => 'bmd-label-floating'])}} <br>
 
                 <div style="text-align: left; padding-left: 70px">
-                
-                <!-- <input type="checkbox" name="tujuan[]" value="Produksi"> Produksi <br>
-                <input type="checkbox" name="tujuan[]" value="Distribusi"> Distribusi <br>
-                <input type="checkbox" name="tujuan[]" value="Nerwilis"> Nerwilis <br>
-                <input type="checkbox" name="tujuan[]" value="Keuangan"> Keuangan <br> -->
-                @foreach($users as $user)
+                  @foreach($users as $user)
                 
                   <input type="checkbox" name="tujuan[]" value="{{ $user->id}}"> {{ $user->name }} <br>
 

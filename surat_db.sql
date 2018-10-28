@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 28, 2018 at 04:57 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Host: localhost
+-- Generation Time: Oct 28, 2018 at 10:10 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `disposisis` (
   `id` int(10) UNSIGNED NOT NULL,
-  `tujuan` int(10) NOT NULL,
   `catatan` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `batas_waktu` date NOT NULL,
   `sifat_disposisi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -44,9 +43,8 @@ CREATE TABLE `disposisis` (
 -- Dumping data for table `disposisis`
 --
 
-INSERT INTO `disposisis` (`id`, `tujuan`, `catatan`, `batas_waktu`, `sifat_disposisi`, `created_at`, `updated_at`, `inletter_id`, `user_id`) VALUES
-(37, 3, 'sdf', '2018-10-26', 'SR', '2018-10-25 20:21:26', '2018-10-25 20:25:24', 13, 2),
-(38, 3, 'rahasia untuk beberapa bidang', '2018-10-27', 'SR', '2018-10-27 09:13:48', '2018-10-27 09:13:48', 3, 2);
+INSERT INTO `disposisis` (`id`, `catatan`, `batas_waktu`, `sifat_disposisi`, `created_at`, `updated_at`, `inletter_id`, `user_id`) VALUES
+(52, 'dr surat 1', '2018-10-17', 'SR', '2018-10-28 01:48:36', '2018-10-28 01:48:36', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -166,6 +164,28 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tujuan_disposisi`
+--
+
+CREATE TABLE `tujuan_disposisi` (
+  `id` int(11) NOT NULL,
+  `disposisi_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tujuan_disposisi`
+--
+
+INSERT INTO `tujuan_disposisi` (`id`, `disposisi_id`, `user_id`) VALUES
+(25, 52, 9),
+(26, 52, 11),
+(27, 52, 14),
+(28, 52, 15);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -203,8 +223,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`
 -- Indexes for table `disposisis`
 --
 ALTER TABLE `disposisis`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `tujuan` (`tujuan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `inletters`
@@ -231,6 +250,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `tujuan_disposisi`
+--
+ALTER TABLE `tujuan_disposisi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -245,7 +270,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `disposisis`
 --
 ALTER TABLE `disposisis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `inletters`
@@ -266,10 +291,16 @@ ALTER TABLE `outletters`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `tujuan_disposisi`
+--
+ALTER TABLE `tujuan_disposisi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

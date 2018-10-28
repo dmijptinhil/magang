@@ -15,13 +15,12 @@
           <div class="col-md-5">
             <div class="form-group">
               {{Form::label('tujuan', 'Tujuan Disposisi',['class' => 'bmd-label-floating'])}}
-              <!--  {{Form::text('tujuan', $disposisi->tujuan, ['class' => 'form-control', 'placeholder' => ''])}} -->
               <div style="text-align: left; padding-left: 70px">
-                <input type="checkbox" name="tujuan[]" value="IPDS" {{ in_array("IPDS", unserialize($disposisi->tujuan)) ? "checked" : "" }}> IPDS <br>
-                <input type="checkbox" name="tujuan[]" value="Produksi" {{ in_array("Produksi", unserialize($disposisi->tujuan)) ? "checked" : "" }}> Produksi <br>
-                <input type="checkbox" name="tujuan[]" value="Distribusi" {{ in_array("Distribusi", unserialize($disposisi->tujuan)) ? "checked" : "" }}> Distribusi <br>
-                <input type="checkbox" name="tujuan[]" value="Nerwilis" {{ in_array("Nerwilis", unserialize($disposisi->tujuan)) ? "checked" : "" }}> Nerwilis <br>
-                <input type="checkbox" name="tujuan[]" value="Keuangan" {{ in_array("Keuangan", unserialize($disposisi->tujuan)) ? "checked" : "" }}> Keuangan <br>
+
+                @foreach($users as $user)
+                  <input type="checkbox" name="tujuan[]" value="{{ $user->id}}" {{ in_array($user->id, $tujuan) ? "checked" : "" }}> {{ $user->name }} <br>
+                @endforeach
+
               </div>
             </div>
           </div>
