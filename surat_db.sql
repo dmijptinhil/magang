@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 27, 2018 at 04:36 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: 127.0.0.1
+-- Generation Time: Oct 28, 2018 at 04:57 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `disposisis` (
   `id` int(10) UNSIGNED NOT NULL,
-  `tujuan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tujuan` int(10) NOT NULL,
   `catatan` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `batas_waktu` date NOT NULL,
   `sifat_disposisi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -45,7 +45,8 @@ CREATE TABLE `disposisis` (
 --
 
 INSERT INTO `disposisis` (`id`, `tujuan`, `catatan`, `batas_waktu`, `sifat_disposisi`, `created_at`, `updated_at`, `inletter_id`, `user_id`) VALUES
-(37, 'a:1:{i:0;s:8:\"Keuangan\";}', 'sdf', '2018-10-26', 'SR', '2018-10-25 20:21:26', '2018-10-25 20:25:24', 13, 2);
+(37, 3, 'sdf', '2018-10-26', 'SR', '2018-10-25 20:21:26', '2018-10-25 20:25:24', 13, 2),
+(38, 3, 'rahasia untuk beberapa bidang', '2018-10-27', 'SR', '2018-10-27 09:13:48', '2018-10-27 09:13:48', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -184,10 +185,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'WEPSp0sI1r2svav2W5xlJCaZ9WEop9dkoDucXNodH80t0TbMTGUfjpS477IF', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
-(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'YNkrbMETLPzMKbpAVy4YAwbiZ3ItHU5adbB98F28XrExcTmNp9cTu2EupKDf', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
+(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'bTfLUqLvkHabQJfFbooQHBFfZbhFD4S0612lUOUJcpDb9GWXW9Wr9WcnVhQc', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
+(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'qrZMg7Fp4E3hB81aXVA5aM7plrKX1ICTY4FPwkaHj1uLoirZco0QU4QsJF5X', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
 (3, 'Kasubag. TU', 'tu@bps.go.id', '$2y$10$vbVexqcErI5RbkeQEn8.ze5Nylrlqd9NxR3YQsqInzAZFL0cF82r.', 3, '0CZqe41ugVmetA6xsqNatNCCib16nRDOTypX1KuC06Pgfz8rlnJNg5pGT8Ud', '2018-10-15 06:08:08', '2018-10-19 21:15:50'),
-(9, 'Distribusi', 'distribusi@bps.go.id', '$2y$10$iloy7VJjbOPn6poA/HnjYOpO4ef.SBiuTNZ0C6f3mI8ldLll757JS', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-19 21:38:04');
+(9, 'Bidang Statistik Distribusi', 'distribusi@bps.go.id', '$2y$10$4YWgoALs8U3ZMIQKfxR1MOVre.8/vSfsKsH4uRku9UWOcC8HDnobq', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-27 08:54:00'),
+(10, 'Bagian Tata Usaha', 'tatausaha@bps.go.id', '$2y$10$0aNTXJ3HOctdeQw0V.s7/.wnGA.KjDmaiJQdFGgiKtN2noaDN/ObK', 3, NULL, '2018-10-27 08:52:00', '2018-10-27 08:55:25'),
+(11, 'Bidang Statistik Sosial', 'sosial@bps.go.id', '$2y$10$JbIW/..kpjaTGhl9d0YZQORr5P9qwLE1ImrUEP4EXcnZbkU0ibise', 4, NULL, '2018-10-27 08:53:34', '2018-10-27 08:53:34'),
+(12, 'Bidang Statistik Produksi', 'produksi@bps.go.id', '$2y$10$F7H9LBRIt9a.HUcMUIZgy./HYt6de1wNfiZlLsmpNUG9VEgGg3UOm', 4, NULL, '2018-10-27 08:56:04', '2018-10-27 08:56:04'),
+(14, 'Bidang Integrasi Pengolahan dan Diseminasi Statistik', 'ipds@bps.go.id', '$2y$10$tsO/SpEaaAEjJ5aBeRXptuc2bA232WPenlny.2vlZDUR49eb6471e', 4, NULL, '2018-10-27 08:57:30', '2018-10-27 08:57:30'),
+(15, 'Bidang Neraca Wilayah dan Analisis Statistik', 'nerwilis@bps.go.id', '$2y$10$dZq1tguo7c/re8T.iOJla.TIoLtvU/zJTP8Cm1E7KJoq2BkJx73Z2', 4, NULL, '2018-10-27 08:56:51', '2018-10-27 08:56:51');
 
 --
 -- Indexes for dumped tables
@@ -197,7 +203,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`
 -- Indexes for table `disposisis`
 --
 ALTER TABLE `disposisis`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tujuan` (`tujuan`);
 
 --
 -- Indexes for table `inletters`
@@ -238,7 +245,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `disposisis`
 --
 ALTER TABLE `disposisis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `inletters`
@@ -262,7 +269,7 @@ ALTER TABLE `outletters`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
