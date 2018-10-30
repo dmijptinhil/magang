@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2018 at 10:10 AM
+-- Generation Time: Oct 30, 2018 at 03:19 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -44,7 +44,8 @@ CREATE TABLE `disposisis` (
 --
 
 INSERT INTO `disposisis` (`id`, `catatan`, `batas_waktu`, `sifat_disposisi`, `created_at`, `updated_at`, `inletter_id`, `user_id`) VALUES
-(52, 'dr surat 1', '2018-10-17', 'SR', '2018-10-28 01:48:36', '2018-10-28 01:48:36', 1, 2);
+(52, 'dr surat 1', '2018-10-17', 'SR', '2018-10-28 01:48:36', '2018-10-28 01:48:36', 1, 2),
+(53, 'buat distribusi', '2018-10-10', 'SR', '2018-10-30 06:53:17', '2018-10-30 06:53:17', 15, 2);
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ INSERT INTO `inletters` (`id`, `no_surat`, `klasifikasi`, `asal`, `perihal`, `tu
 (11, '11/11/11/2018', 'Penting', 'Kementrian Hukum dan Ham', 'undangan rapat', 3, 'rapat acara hukum', NULL, NULL, '2018-10-25 15:25:48', '2018-10-25 15:25:48', 1, NULL),
 (12, '01/2/X/2018', 'Umum', 'Kemenketrans', 'Permohonan', 3, 'permohonan untuk tidak mempublikasikan data', NULL, NULL, '2018-10-25 15:27:20', '2018-10-25 15:27:20', 1, NULL),
 (13, 'sfsdfdsfsd', 'Penting', 'ssdfds', 'sfsdf', 3, 'sfsdfdsf', NULL, NULL, '2018-10-25 19:52:45', '2018-10-25 19:52:45', 1, NULL),
-(14, 'fsdf', 'Penting', 'sdf', 'sdf', 1, 'sdf', NULL, NULL, '2018-10-26 20:19:13', '2018-10-26 20:19:13', 1, NULL);
+(14, 'fsdf', 'Penting', 'sdf', 'sdf', 1, 'sdf', NULL, NULL, '2018-10-26 20:19:13', '2018-10-26 20:19:13', 1, NULL),
+(15, 'test', 'Penting', 'fsdf', 'sdf', 2, 'cra', NULL, NULL, '2018-10-30 06:42:31', '2018-10-30 06:42:31', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,7 +183,8 @@ INSERT INTO `tujuan_disposisi` (`id`, `disposisi_id`, `user_id`) VALUES
 (25, 52, 9),
 (26, 52, 11),
 (27, 52, 14),
-(28, 52, 15);
+(28, 52, 15),
+(29, 53, 9);
 
 -- --------------------------------------------------------
 
@@ -205,15 +208,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'bTfLUqLvkHabQJfFbooQHBFfZbhFD4S0612lUOUJcpDb9GWXW9Wr9WcnVhQc', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
-(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$2dZ0hvBhUlVUHs76euc3Ae.O6Eft/acI5aCbEIqNe0./04VGKDX/i', 2, 'qrZMg7Fp4E3hB81aXVA5aM7plrKX1ICTY4FPwkaHj1uLoirZco0QU4QsJF5X', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
-(3, 'Kasubag. TU', 'tu@bps.go.id', '$2y$10$vbVexqcErI5RbkeQEn8.ze5Nylrlqd9NxR3YQsqInzAZFL0cF82r.', 3, '0CZqe41ugVmetA6xsqNatNCCib16nRDOTypX1KuC06Pgfz8rlnJNg5pGT8Ud', '2018-10-15 06:08:08', '2018-10-19 21:15:50'),
-(9, 'Bidang Statistik Distribusi', 'distribusi@bps.go.id', '$2y$10$4YWgoALs8U3ZMIQKfxR1MOVre.8/vSfsKsH4uRku9UWOcC8HDnobq', 4, 'Sjzfz709iBThCOQ0lCWdZJoIWESOtlF4Y2tHWdyuHzN7wEP2EuDcv5lLWhyE', '2018-10-19 21:20:28', '2018-10-27 08:54:00'),
-(10, 'Bagian Tata Usaha', 'tatausaha@bps.go.id', '$2y$10$0aNTXJ3HOctdeQw0V.s7/.wnGA.KjDmaiJQdFGgiKtN2noaDN/ObK', 3, NULL, '2018-10-27 08:52:00', '2018-10-27 08:55:25'),
-(11, 'Bidang Statistik Sosial', 'sosial@bps.go.id', '$2y$10$JbIW/..kpjaTGhl9d0YZQORr5P9qwLE1ImrUEP4EXcnZbkU0ibise', 4, NULL, '2018-10-27 08:53:34', '2018-10-27 08:53:34'),
-(12, 'Bidang Statistik Produksi', 'produksi@bps.go.id', '$2y$10$F7H9LBRIt9a.HUcMUIZgy./HYt6de1wNfiZlLsmpNUG9VEgGg3UOm', 4, NULL, '2018-10-27 08:56:04', '2018-10-27 08:56:04'),
-(14, 'Bidang Integrasi Pengolahan dan Diseminasi Statistik', 'ipds@bps.go.id', '$2y$10$tsO/SpEaaAEjJ5aBeRXptuc2bA232WPenlny.2vlZDUR49eb6471e', 4, NULL, '2018-10-27 08:57:30', '2018-10-27 08:57:30'),
-(15, 'Bidang Neraca Wilayah dan Analisis Statistik', 'nerwilis@bps.go.id', '$2y$10$dZq1tguo7c/re8T.iOJla.TIoLtvU/zJTP8Cm1E7KJoq2BkJx73Z2', 4, NULL, '2018-10-27 08:56:51', '2018-10-27 08:56:51');
+(1, 'Admin', 'admin@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 1, 'A6e1eo8ZLBs7ojcWZo1rbdACE9KajCZF1XtKGHM1KxcQ9A9rLpL2mNGBp3My', '2018-10-15 20:57:16', '2018-10-15 20:57:16'),
+(2, 'Kepala BPS', 'pimpinan@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 2, '5p53iFmtyPTwtSeh33UXdC9SVO0r6V9sCtyG5h8ag3PAYMKxMvLWzA3o85zu', '2018-10-14 20:44:48', '2018-10-19 20:31:13'),
+(3, 'Kasubag. TU', 'tu@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 3, '0CZqe41ugVmetA6xsqNatNCCib16nRDOTypX1KuC06Pgfz8rlnJNg5pGT8Ud', '2018-10-15 06:08:08', '2018-10-19 21:15:50'),
+(9, 'Bidang Statistik Distribusi', 'distribusi@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 4, 'KOJ1WOqxZubfpkBRMjOBgWUdwyYzu2xW45rs5jvrvbcOyPMtt20ItEKNJfXm', '2018-10-19 21:20:28', '2018-10-27 08:54:00'),
+(10, 'Bagian Tata Usaha', 'tatausaha@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 3, 'jbZhFMW0ICg9xZ92ziQWKriWNpStuNiuG5kz7ECekCaIF1Qm0v4RWD8sCFET', '2018-10-27 08:52:00', '2018-10-27 08:55:25'),
+(11, 'Bidang Statistik Sosial', 'sosial@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 4, NULL, '2018-10-27 08:53:34', '2018-10-27 08:53:34'),
+(12, 'Bidang Statistik Produksi', 'produksi@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 4, NULL, '2018-10-27 08:56:04', '2018-10-27 08:56:04'),
+(14, 'Bidang Integrasi Pengolahan dan Diseminasi Statistik', 'ipds@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 4, 'DNdGyuLqJO25Q9hTC4j052tmdi4HzodG6hBPam4SXBolvR96XMCEBqIDYRNw', '2018-10-27 08:57:30', '2018-10-27 08:57:30'),
+(15, 'Bidang Neraca Wilayah dan Analisis Statistik', 'nerwilis@bps.go.id', '$2y$10$aDPQM7rq.UJTQo./zwXxseS/9qgRHDHaWTFV9dBHcHHTEn3I3qCvS', 4, NULL, '2018-10-27 08:56:51', '2018-10-27 08:56:51');
 
 --
 -- Indexes for dumped tables
@@ -270,13 +273,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `disposisis`
 --
 ALTER TABLE `disposisis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `inletters`
 --
 ALTER TABLE `inletters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -294,7 +297,7 @@ ALTER TABLE `outletters`
 -- AUTO_INCREMENT for table `tujuan_disposisi`
 --
 ALTER TABLE `tujuan_disposisi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `users`

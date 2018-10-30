@@ -27,16 +27,11 @@ class DisposisisController extends Controller
      */
     public function index()
     {
-       
-     $disposisi = \App\Disposisi::all();
-     $sm = \App\Inletter::where('no_surat')->get();
 
-     $tujuan = TujuanDisposisi::where('user_id')->get();
+    $tujuan = TujuanDisposisi::where('user_id', auth()->user()->id)->get();
+    return view('disposisis.index')
+        ->with('tujuans', $tujuan);
 
-     return view('disposisis.index')
-        ->with('disposisi', $disposisi)
-        ->with('inletters', $sm)
-        ->with('tujuan', $tujuan);
     }
 
     /**

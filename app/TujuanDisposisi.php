@@ -15,4 +15,8 @@ class TujuanDisposisi extends Model
     public function getUser() {
     	return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function getDisposisi() {
+    	return $this->belongsTo('App\Disposisi', 'disposisi_id');
+    }
 }
