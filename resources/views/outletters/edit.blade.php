@@ -65,25 +65,27 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
                   {{Form::label('petugas', 'Nama Petugas',['class' => 'bmd-label-floating'])}}
                   {{Form::text('petugas',  $outletter->petugas, ['class' => 'form-control', 'placeholder' => ''])}}
                 </div>
-              </div>
+              </div> -->
               <!--  <div class="col-md-4">
                   <div class="form-group">
                     {{Form::label('date', 'Tanggal Keluar Surat',['class' => 'bmd-label-floating'])}}
                     {{Form::date('date', $outletter->date,['class' => 'form-control', 'placeholder' => '', 'required'])}}
                   </div>
-                </div> -->
-              </div>
+                </div> --> 
                 {{Form::hidden('_method', 'PUT')}}
                 {{Form::submit('Perbarui Surat', ['class' => 'btn btn-info pull-right' ])}}
                 <div class="clearfix"></div>
                  {!! Form::close() !!}
+              </div>
+                
                 </div>
+
               </div>
             </div>
           </div>

@@ -1,0 +1,22 @@
+//admin role id = 1
+username : admin@bps.go.id
+password : admin123
+//pimpinan role id = 2
+username : pimpinan@bps.go.id
+password : admin123
+//tata usaha = kasubag.tu dan operator role id = 3
+username : tu@bps.go.id
+password : admin123
+username : tatausaha@bps.go.id
+password : admin123
+//pegawai role id = 4
+username : distribusi@bps.go.id
+password : admin123
+username : produksi@bps.go.id
+password : admin123
+username : ipds@bps.go.id
+password : admin123
+username : nerwilis@bps.go.id
+password : admin123
+username : sosial@bps.go.id
+password : admin123

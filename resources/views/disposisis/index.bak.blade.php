@@ -18,32 +18,24 @@
             	<div class="table-responsive">
               	<table class="table">
   	              <thead class=" text-danger">
+                    <th>ID Disposisi</th>
   	              	<th>Tanggal Disposisi</th>
-                    <th>Nomor Surat</th>
-                    <th>File</th>
   	              	<th>Aksi</th>
   	              </thead>
   	              <tbody>
   	                @foreach($disposisi as $disposisi)
-                    @if(Auth::user()->name = $disposisi->tujuan)
+                      @if($disposisi->tujuan == Auth::user()->id)
                       <tr>
+                        <td>$disposisi->id</td>
     	                  <td>{{Common::indDate($disposisi->created_at->format('l, d F Y'))}}</td>
-                        <td>{{$disposisi->getNomor}}</td>
-                        <td>{{$inletters->filename}}</td>
     	                  <td><a href="{{ route('disposisis.show', $disposisi->id)}} " class="btn btn-success pull-left" style="margin-right: 3px; ">Lihat Disposisi</a></td>
     	                </tr>
                     @endif
-                     @if(Auth::user()->name = 'Admin')
-                      <tr>
-                        <td>
-                          @foreach($tujuan as $tujuan)
-                          <li>{{ $tujuan->getUser->name }}</li>
-                          @endforeach
-                        </td>
-                        <td>{{$disposisi->getNomor}}</td>
-                        <td>{{Common::indDate($disposisi->created_at->format('l, d F Y'))}}</td>
-                        <td><a href="{{ route('disposisis.show', $disposisi->id)}} " class="btn btn-success pull-left" style="margin-right: 3px; ">Lihat Disposisi</a></td>
-                      </tr>
+                     @if(Auth::user()->id == 1)
+                    <tr>
+                      <td>{{Common::indDate($disposisi->created_at->format('l, d F Y'))}}</td>
+                      <td><a href="{{ route('disposisis.show', $disposisi->id)}} " class="btn btn-success pull-left" style="margin-right: 3px; ">Lihat Disposisi</a></td>
+                    </tr>
                     @endif
   	                @endforeach
   	              </tbody>

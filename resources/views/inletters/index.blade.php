@@ -69,12 +69,28 @@
         </div>
       </div>      
 		</div>
-    @else
-      <p>Tidak Ada Surat Masuk</p>
-      <a href="/inletters/create" class="btn btn-danger  bottom-left">Tambah Surat</a>
-    @endif
-
-		</div>
-	</div>
+  </div>
+  
+@else
+  <div class="col-lg-8 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-danger card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">info_outline</i>
+        </div>
+        <p class="card-category"> Surat Masuk</p>
+          <h3 class="card-title">
+            tidak ada surat masuk <br>
+            <a href="/inletters/create" class="btn btn-danger  bottom-left">Tambah Surat</a>
+          </h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">local_offer</i> Total Keseluruhan
+        </div>
+      </div>
+    </div>
+  </div>
+@endif
 
 @endsection

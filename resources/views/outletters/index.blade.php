@@ -48,7 +48,7 @@
                     @if($outletter->filename == null || $outletter->filename == "")
                       <td>Tidak ada file</td>
                     @else
-                      <td><a class="text-danger" href="{{ url('files/' . $outletter->filename) }}">Lihat file</a></td>
+                      <td><a class="text-info" href="{{ url('files/' . $outletter->filename) }}">Lihat file</a></td>
                     @endif
                     <td>   <a href="/outletters/{{ $outletter->id}}" class="btn btn-success pull-center">Detail Surat</a>  </td>
                   </tr>
@@ -61,15 +61,34 @@
             <a href="/outletters/create" class="btn btn-info  bottom-left">Tambah Surat</a>     
           @elseif(Auth::user()->role == 3)
             <a href="/outletters/create" class="btn btn-info  bottom-left">Tambah Surat</a>
+          @elseif(Auth::user()->role == 4)
+            <a href="/outletters/create" class="btn btn-info  bottom-left">Tambah Surat</a>
           @endif  
         </div>
       </div>
     </div>   
   </div>
 </div>
-    @else
-      <p>Tidak Ada Surat Masuk</p>
-      <a href="/outletters/create" class="btn btn-danger  bottom-left">Tambah Surat</a>
+@else
+    <div class="col-lg-8 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-info card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">info_outline</i>
+        </div>
+        <p class="card-category"> Surat Keluar</p>
+          <h3 class="card-title">
+            tidak ada surat keluar <br>
+            <a href="/outletters/create" class="btn btn-info  bottom-left">Tambah Surat</a>
+          </h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">local_offer</i> Total Keseluruhan
+        </div>
+      </div>
+    </div>
+  </div>
     @endif
 
 		</div>

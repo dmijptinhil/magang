@@ -45,7 +45,7 @@
         <div class="card-body">
           <h4 class="card-title">Nomor Surat : {{$outletter->no_surat}}</h4>
           <h4 class="card-title">Klasifikasi Surat :{{$outletter->klasifikasi}} </h4>
-          <h4 class="card-title">Asal Surat  : {{$outletter->asal}}</h4>
+          <h4 class="card-title">Asal Surat  : {{$outletter->getAsal->name}}</h4>
           <h4 class="card-title">Perihal Surat : {{$outletter->perihal}}</h4>
           <h4 class="card-title">Tujuan Surat : {{$outletter->tujuan}}</h4>
           <h4 class="card-title">Ringkasan Surat : <br>{{$outletter->detail_surat}}</h4>  
@@ -75,11 +75,6 @@
                 @endif
             @else
               <a class="btn btn-info bottom-left" href="{{ url('files/' . $outletter->filename) }}">Lihat file</a> 
-                 <form onclick="return confirm('Yakin ingin menghapus file?');" action="{{ route('deleteFileOut', [$outletter->id, $outletter->filename]) }}" method="post">
-                  <input type="hidden" name="_method" value="delete" />
-                  {!! csrf_field() !!}
-                  <button class="btn btn-danger pull-right">Delete</button>
-                  </form>
             @endif
           </h3>
         </div>

@@ -12,7 +12,7 @@
         <div class="card-body">
           {!! Form::open(['action' => 'OutlettersController@store', 'method' => 'POST', 'enctype' => 'multipart/data']) !!}
           <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-3">
                 <div class="form-group">
                   {{Form::label('no_surat', 'Nomor Surat',['class' => 'bmd-label-floating'])}}
                   {{Form::text('no_surat', '',['class' => 'form-control', 'placeholder' => '' , 'required' => ''])}}
@@ -30,7 +30,7 @@
                   </select> 
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-5">
                 <div class="form-group">
                   {{Form::label('asal', 'Asal Surat',['class' => 'bmd-label-floating'])}}
                   <select class="form-control" name="asal"> 

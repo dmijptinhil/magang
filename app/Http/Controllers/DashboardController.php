@@ -17,6 +17,7 @@ class DashboardController extends Controller
      *
      * @return void
      */
+    //yang bisa ngakses ini hanya yang sudah login
     public function __construct()
     {
         $this->middleware('auth');
@@ -32,7 +33,7 @@ class DashboardController extends Controller
         //variabel surat masuk hari ini
         $masuk = Inletter::where('tujuan', '=', auth()->user()->id)->whereDate('created_at', '=', Carbon::today())->paginate(5);
         //variabel surat keluar hari ini
-        $keluar = Outletter::where('tujuan', '=', auth()->user()->id)->whereDate('created_at', '=', Carbon::today())->paginate(5);
+        $keluar = Outletter::where('asal', '=', auth()->user()->id)->whereDate('created_at', '=', Carbon::today())->paginate(5);
         //variabel untuk menghitung jumlah surat
         $no_all_masuk = Inletter::all()->count();
         $no_all_keluar = Outletter::all()->count();
@@ -51,10 +52,11 @@ class DashboardController extends Controller
     public function search(Request $request) {
         //keywoard untuk mencari surat
         $keywoard = $request->input('from');
+        $users = User::all();
         //cari surat masuk
-        $in = Inletter::where('no_surat', 'like', '%'. $keywoard. '%')->orWhere('asal','like', '%'. $keywoard. '%')->orWhere('tujuan','like', '%'. $keywoard. '%')->orWhere('perihal','like', '%'. $keywoard. '%')->orWhere('detail_surat','like', '%'. $keywoard. '%')->orderBy('created_at', 'desc')->get();
+        $in = Inletter::where('no_surat', 'like', '%'. $keywoard. '%')->orWhere('created_at','like', '%'. $keywoard. '%')->orWhere('asal','like', '%'. $keywoard. '%')->orWhere('tujuan','like', '%'. $keywoard. '%')->orWhere('perihal','like', '%'. $keywoard. '%')->orWhere('detail_surat','like', '%'. $keywoard. '%')->orderBy('created_at', 'desc')->get();
         //cari surat keluar
-        $out = Outletter::where('no_surat', 'like', '%'. $keywoard. '%')->orWhere('asal','like', '%'. $keywoard. '%')->orWhere('tujuan','like', '%'. $keywoard. '%')->orWhere('perihal','like', '%'. $keywoard. '%')->orWhere('detail_surat','like', '%'. $keywoard. '%')->orderBy('created_at', 'desc')->get();
+        $out = Outletter::where('no_surat', 'like', '%'. $keywoard. '%')->orWhere('created_at','like', '%'. $keywoard. '%')->orWhere('asal','like', '%'. $keywoard. '%')->orWhere('tujuan','like', '%'. $keywoard. '%')->orWhere('perihal','like', '%'. $keywoard. '%')->orWhere('detail_surat','like', '%'. $keywoard. '%')->orderBy('created_at', 'desc')->get();
         return view('pages.search')
             ->with('ins', $in)
             ->with('outs', $out);

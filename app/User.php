@@ -27,12 +27,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+    //relation with disposisi one to many
     public function disposisis(){
         return $this->hasMany('App\Disposisi');
     }
+    //relation with inletters one to many
      public function inletters(){
         return $this->hasMany('App\Inletter');
+    //relation with outletters one to many
     }
      public function outletters(){
         return $this->hasMany('App\Outletter');

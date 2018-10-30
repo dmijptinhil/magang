@@ -12,7 +12,7 @@
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
 
-      <title>BPS Surat</title>
+      <title>Aplikasi Pengarsipan Surat</title>
 
       <!-- Scripts -->
       <script src="{{ asset('js/app.js') }}" defer></script>
@@ -61,19 +61,13 @@
             <div class="collapse navbar-collapse justify-content-end">  
               <ul class="navbar-nav ml-auto" >
                 @guest
-                 <!--  <li class="nav-item">
-                   <a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
-                  </li>
-                  <li class="nav-item">
-                   <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
-                  </li> -->
+                
                 @else
                   
                 <form action="{{ route('search') }}" method="get" class="navbar-form">
                   <!-- {{ csrf_field() }} -->
                     <div class="input-group no-border">
-                      <input type="text" name="from" value="" class="form-control" placeholder="Cari Surat...">
-                      <!-- <input type="text" name="to" value="" class="form-control" placeholder="Search..."> -->
+                      <input type="text" name="from" value="" class="form-control" placeholder="Cari Surat..." required="">
                       <button type="submit" class="btn btn-white btn-round btn-just-icon">
                         <i class="material-icons">search</i>
                         <div class="ripple-container"></div>
@@ -102,6 +96,11 @@
                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{ route('inletters.index') }}">
                            {{ __('surat masuk') }}</a>
+                           
+                          @if(Auth::user()->role != 2)
+                          
+                          <a class="dropdown-item" href="{{ route('disposisis.index') }}">{{ __('disposisi') }}</a>
+                          @endif
                           <a class="dropdown-item" href="{{ route('outletters.index') }}">
                           {{ __('surat keluar') }}</a>
                        </div>

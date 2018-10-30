@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-	<title>Aplikasi Pengarsipan Surat | BPS</title>
+	<title>Pengarsipan Surat | Login</title>
 	<!-- Meta-Tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
@@ -40,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 	<h1>Aplikasi Pengarsipan Surat Masuk dan Surat Keluar </h1>
 	<div class="clear">
-		<span><img width="80px" src="{{ asset('../assets/img/BPS.png') }}"> </span>
+		<span><img width="130px" src="{{ asset('../assets/img/BPS.png') }}"> </span>
 	</div>
 	<div class="w3ls-login box box--big">
 		<!-- form starts here -->
@@ -56,9 +56,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="agile_label">
 					<input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
 					<label class="check" for="check3">Tampilkan Kata Sandi</label>
-				</div>
-				<div class="agile-right">
-					<a href="{{ route('password.request') }}">Lupa Kata Sandi?</a>
 				</div>
 			</div>
 			<!-- script for show password -->
@@ -76,13 +73,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<input type="submit" value="LOGIN">
 		</form>
 	</div>
-	<!-- //form ends here -->
-	<!--copyright-->
-	<!-- <div class="copy-wthree">
-		<p>© 2018 Spin Login Form . All Rights Reserved | Design by
-			<a href="http://w3layouts.com/" target="_blank">W3layouts</a>
-		</p>
-	</div> -->
-	<!--//copyright-->
 </body>
 </html>

@@ -27,10 +27,16 @@ class DisposisisController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        $disposisis=\App\Disposisi::all();
-        return view('disposisis.create', compact('disposisis', $user->disposisis));
+       
+     $disposisi = \App\Disposisi::all();
+     $sm = \App\Inletter::where('no_surat')->get();
+
+     $tujuan = TujuanDisposisi::where('user_id')->get();
+
+     return view('disposisis.index')
+        ->with('disposisi', $disposisi)
+        ->with('inletters', $sm)
+        ->with('tujuan', $tujuan);
     }
 
     /**
@@ -40,6 +46,7 @@ class DisposisisController extends Controller
      */
     public function create($id_inletter)
     {
+
      $users = User::all()->except([1, 3, 2]);
      return view('disposisis/create')->with('id_inletter', $id_inletter)->with('users', $users);
  }

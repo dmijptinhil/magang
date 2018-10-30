@@ -19,24 +19,27 @@
 	                <th>Asal</th>
 	                <th>Perihal</th>
 	                <th>Tujuan</th>  
-	                <th>File</th>
-	                <th>Aksi</th>
                 </thead>
                 <tbody>
                   @foreach($ins as $in)
+                  @if(Auth::user()->id == $in->tujuan)
                     <tr>
                       <td>{{Common::indDate($in->created_at->format('l, d F Y'))}} </td>
                       <td>{{$in->no_surat}}</td>
                       <td>{{$in->asal}}</td>
                       <td>{{$in->perihal}}</td>
-                      <td>{{$in->tujuan}}</td>
-                      @if($in->filename == null || $in->filename == "")
-                        <td>Tidak ada file</td>
-                      @else
-                        <td><a class="text-danger" href="{{ url('files/' . $in->filename) }}">Lihat file</a></td>
-                      @endif
-                      <td><a href="/inletters/{{ $in->id}}" class="btn btn-success pull-center">Detail Surat</a></td>    
+                      <td>{{$in->getTujuan->name}}</td>
                     </tr>
+                  @endif
+                  @if(Auth::user()->id == 1)
+                    <tr>
+                      <td>{{Common::indDate($in->created_at->format('l, d F Y'))}} </td>
+                      <td>{{$in->no_surat}}</td>
+                      <td>{{$in->asal}}</td>
+                      <td>{{$in->perihal}}</td>
+                      <td>{{$in->getTujuan->name}}</td>
+                    </tr>
+                  @endif
                   @endforeach
                 </tbody>
               </table>
@@ -81,25 +84,28 @@
                   <th>Nomor Surat</th>
                   <th>Asal</th>
                   <th>Perihal</th>
-                  <th>Tujuan</th>  
-                  <th>File</th>
-                  <th>Aksi</th>
+                  <th>Tujuan</th>
                 </thead>
                 <tbody>
                   @foreach($outs as $out)
+                  @if(Auth::user()->id == $out->asal)
                     <tr>
                        <td>{{Common::indDate($out->created_at->format('l, d F Y'))}} </td>
                       <td>{{$out->no_surat}}</td>
-                      <td>{{$out->asal}}</td>
+                      <td>{{$out->getAsal->name}}</td>
                       <td>{{$out->perihal}}</td>
                       <td>{{$out->tujuan}}</td>
-                      @if($out->filename == null || $out->filename == "")
-                        <td>Tidak ada file</td>
-                      @else
-                        <td><a class="text-info" href="{{ url('files/' . $out->filename) }}">Lihat file</a></td>
-                      @endif
-                      <td>   <a href="/inletters/{{ $out->id}}" class="btn btn-success pull-center">Detail Surat</a>  </td>
                     </tr>
+                  @endif
+                   @if(Auth::user()->id == 1)
+                    <tr>
+                       <td>{{Common::indDate($out->created_at->format('l, d F Y'))}} </td>
+                      <td>{{$out->no_surat}}</td>
+                      <td>{{$out->getAsal->name}}</td>
+                      <td>{{$out->perihal}}</td>
+                      <td>{{$out->tujuan}}</td>
+                    </tr>
+                  @endif
                   @endforeach
                  </tbody>
               </table>

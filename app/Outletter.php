@@ -13,7 +13,7 @@ class Outletter extends Model
     //Timestamps
     public $timestamps = true;
 
-
+    //relation with user one to many
     public function getAsal()
     {
         return $this->belongsTo('App\User', 'asal');

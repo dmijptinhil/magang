@@ -13,11 +13,12 @@ class Inletter extends Model
     //Timestamps
     public $timestamps = true;
 
-    //relationship with disposisi
+    //relation with disposisi one to one
     public function disposisi(){
     	return $this->hasOne('App\Disposisi', 'inletter_id');
     }
 
+    //relation with user one to many
     public function getTujuan()
     {
         return $this->belongsTo('App\User', 'tujuan');
